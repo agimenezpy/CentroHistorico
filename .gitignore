@@ -1,0 +1,6 @@
+*.o
+CentroHistorico
+*.exe
+Makefile
+moc_*
+ui_*
