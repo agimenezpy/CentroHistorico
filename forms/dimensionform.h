@@ -2,10 +2,9 @@
 #define DIMENSIONFORM_H
 
 #include "ui_dimensionform.h"
-#include "commonform.hpp"
 #include "modelhelper.hpp"
 
-class DimensionForm : public QGroupBox, public ModelHelper, public CommonForm, private Ui::DimensionForm {
+class DimensionForm : public QGroupBox, public ModelHelper, private Ui::DimensionForm {
     Q_OBJECT
 public:
     DimensionForm(int cuenta, QWidget *parent = 0);

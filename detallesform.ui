@@ -195,7 +195,7 @@
   </connection>
   <connection>
    <sender>formTree</sender>
-   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <signal>itemClicked(QTreeWidgetItem*,int)</signal>
    <receiver>DetallesForm</receiver>
    <slot>cambiarFormulario(QTreeWidgetItem*,int)</slot>
    <hints>

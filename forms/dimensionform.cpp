@@ -1,30 +1,33 @@
 #include "dimensionform.h"
 #include <QtSql>
 #include <QDataWidgetMapper>
-#include <QtGui/QMessageBox>
+#include <detallesform.h>
+#include <QtCore>
 
 DimensionForm::DimensionForm(int cuenta, QWidget *parent) :
-    QGroupBox(parent){
+    QGroupBox(parent) {
     setupUi(this);
-    construct(this,"dimension",QString("%1").arg(cuenta));
+    QString ccc = QString("%1").arg(cuenta);
+    cuentaEdit->setText(ccc);
+    cuentaEdit->setVisible(false);
+    construct(this, QString("dimension"), ccc);
+    mapper->addMapping(cuentaEdit, 0);
     mapper->addMapping(loteAnchoEdit, 1);
     mapper->addMapping(loteLargoEdit, 2);
     mapper->addMapping(loteSuperficieEdit, 3);
     mapper->addMapping(loteOcupacionEdit, 4);
-    mapper->addMapping(loteOcupacionEdit, 5);
+    mapper->addMapping(loteEdificabilidadEdit, 5);
     init();
-    model->record().setValue("cuenta",QVariant(cuenta));
+    QDoubleValidator *val = new QDoubleValidator(this);
+    val->setBottom(0);
+    loteAnchoEdit->setValidator(val);
+    loteLargoEdit->setValidator(val);
+    loteSuperficieEdit->setValidator(val);
+    loteOcupacionEdit->setValidator(val);
+    loteEdificabilidadEdit->setValidator(val);
 }
 
 void DimensionForm::closeEvent(QCloseEvent *event) {
-    int confirm = QMessageBox::question(this,"Guardar Cambios","¿Desea guardar los cambios?","Si", "No");
-    if (confirm == 0) {
-        qDebug() << "yes" << confirm;
-    }
-    else if (confirm == 1)
-        qDebug() << "no" << confirm;
-    else
-        qDebug() << confirm;
     QGroupBox::closeEvent(event);
 }
 

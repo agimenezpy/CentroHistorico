@@ -12,12 +12,15 @@ public:
 private slots:
     void cambiarFormulario(QTreeWidgetItem *item, int column);
     void guardarActual();
+signals:
+    void guardar();
 
 protected:
     void closeEvent(QCloseEvent *event);
 private:
     QWidget* actualForm;
     int cuenta;
+    QString last;
 };
 
 #endif // DETALLESFORM_H

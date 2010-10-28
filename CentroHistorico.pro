@@ -12,14 +12,14 @@ SOURCES += mainwindow.cpp \
     encuestadorform.cpp \
     generalform.cpp \
     detallesform.cpp \
-    datosgenerales.cpp \
     forms/dimensionform.cpp \
     forms/edificacionform.cpp \
     forms/patiosform.cpp \
     forms/accesoform.cpp \
     forms/entornoform.cpp \
     forms/serviciosform.cpp \
-    modelhelper.cpp
+    modelhelper.cpp \
+    util/combodelegate.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -28,7 +28,6 @@ HEADERS += mainwindow.h \
     encuestadorform.h \
     generalform.h \
     detallesform.h \
-    datosgenerales.h \
     forms/dimensionform.h \
     forms/edificacionform.h \
     forms/patiosform.h \
@@ -36,7 +35,8 @@ HEADERS += mainwindow.h \
     forms/entornoform.h \
     forms/serviciosform.h \
     modelhelper.hpp \
-    forms/commonform.hpp
+    forms/commonform.hpp \
+    util/combodelegate.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \
@@ -44,7 +44,6 @@ FORMS += mainwindow.ui \
     encuestadorform.ui \
     generalform.ui \
     detallesform.ui \
-    datosgenerales.ui \
     forms/dimensionform.ui \
     forms/edificacionform.ui \
     forms/patiosform.ui \

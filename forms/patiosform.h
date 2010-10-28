@@ -2,14 +2,15 @@
 #define PATIOSFORM_H
 
 #include "ui_patiosform.h"
+#include "modelhelper.hpp"
 
-class PatiosForm : public QGroupBox, private Ui::PatiosForm {
+class PatiosForm : public QGroupBox, public ModelHelper, private Ui::PatiosForm {
     Q_OBJECT
 public:
-    PatiosForm(QWidget *parent = 0);
-
-protected:
-    void changeEvent(QEvent *e);
+    PatiosForm(int cuenta, QWidget *parent = 0);
+    void guardar();
+private:
+    
 };
 
 #endif // PATIOSFORM_H

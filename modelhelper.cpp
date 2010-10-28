@@ -8,31 +8,36 @@ void ModelHelper::construct(QWidget *parent, QString tableName, QString column) 
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
     model = new QSqlTableModel(parent);
     model->setTable(tableName);
-    model->setFilter(QString("cuenta = %1").arg(column));
+    model->setFilter(QString("cuenta_id = %1").arg(column));
     model->select();
     mapper->setModel(model);
 }
 
 void ModelHelper::init() {
+    mapper->submit();
     isNew = false;
     int row = model->rowCount();
-    if (row > 0)
+    if (row == 0) {
         isNew = true;
-    mapper->submit();
-    model->insertRow(row);
-    mapper->setCurrentIndex(row);
+        model->insertRow(row);
+        mapper->setCurrentIndex(row);
+    }
+    else {
+        mapper->toFirst();
+    }
 }
 
 void ModelHelper::submit() {
     mapper->submit();
-    model->submitAll();
+    //model->submitAll();
     if (model->lastError().isValid()) {
-        QMessageBox::warning((QWidget*) this,QString("Error al guardar"), model->lastError().text());
+        QMessageBox::warning(0,QString("Error al guardar"), model->lastError().text());
         revert();
     }
+    mapper->toFirst();
 }
 
 void ModelHelper::revert() {
     mapper->revert();
-    model->revertAll();
+    //model->revertAll();
 }
