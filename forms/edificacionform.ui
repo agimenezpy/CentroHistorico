@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EdificacionForm</class>
+ <widget class="QGroupBox" name="EdificacionForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>423</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Edificación</string>
+  </property>
+  <property name="title">
+   <string>EDIFICACION</string>
+  </property>
+  <widget class="QTableWidget" name="edificacionTable">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>54</y>
+     <width>361</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>361</width>
+     <height>331</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>361</width>
+     <height>331</height>
+    </size>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>50</number>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>ADMINIS/OFICINA</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>COMERCIO G. M.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>COMERCIO P. M.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>DESPENSA/A. P.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>BAR/CAFET.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>HOTEL/REST.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>SANIDAD</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>RECREO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>RELIGIOSO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>OTROS</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>SS</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>1º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>2º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>3º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>391</y>
+     <width>273</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QLabel" name="editTotSuperficieLbl">
+      <property name="minimumSize">
+       <size>
+        <width>165</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>165</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Total Superficie Edificada (C):</string>
+      </property>
+      <property name="buddy">
+       <cstring>edifTotSuperficieEdit</cstring>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="edifTotSuperficieEdit">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>201</x>
+     <y>20</y>
+     <width>143</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Pisos:</string>
+      </property>
+      <property name="buddy">
+       <cstring>edifPisosEdit</cstring>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="edifPisosEdit">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>185</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="edifSuperficieLbl">
+      <property name="text">
+       <string>Superficie (B):</string>
+      </property>
+      <property name="buddy">
+       <cstring>edifSuperficieEdit</cstring>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="edifSuperficieEdit">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

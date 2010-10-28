@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DetallesForm</class>
+ <widget class="QDialog" name="DetallesForm">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Detalles de Cuenta</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <widget class="QTreeWidget" name="formTree">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="itemsExpandable">
+      <bool>true</bool>
+     </property>
+     <column>
+      <property name="text">
+       <string>Formularios</string>
+      </property>
+     </column>
+     <item>
+      <property name="text">
+       <string>Dimensiones</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Uso del Suelo</string>
+      </property>
+      <property name="flags">
+       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+      </property>
+      <item>
+       <property name="text">
+        <string>Edificación</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Patios</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Acceso</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Entorno</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nivel de Servicios</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Forma de Ocupación</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Edad</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Conservación</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Valoración Historico Artistica</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fotos/Planos</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
+     <item>
+      <widget class="QWidget" name="formArea" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>218</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="guardarButton">
+         <property name="text">
+          <string>Guardar</string>
+         </property>
+         <property name="icon">
+          <iconset resource="centrohistorico.qrc">
+           <normaloff>:/icons/guardar.png</normaloff>:/icons/guardar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancelar</string>
+         </property>
+         <property name="icon">
+          <iconset resource="centrohistorico.qrc">
+           <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="centrohistorico.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DetallesForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>583</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>184</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>formTree</sender>
+   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <receiver>DetallesForm</receiver>
+   <slot>cambiarFormulario(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>guardarButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DetallesForm</receiver>
+   <slot>guardarActual()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>653</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>cambiarFormulario(QTreeWidgetItem*,int)</slot>
+  <slot>guardarActual()</slot>
+ </slots>
+</ui>

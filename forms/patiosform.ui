@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PatiosForm</class>
+ <widget class="QGroupBox" name="PatiosForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>215</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Patios</string>
+  </property>
+  <property name="title">
+   <string>PATIOS</string>
+  </property>
+  <widget class="QCheckBox" name="patioJardinCheck">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>26</y>
+     <width>169</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Uso</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patioEstacionamientoLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>134</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nº de Plazas de Estacionamiento:</string>
+   </property>
+   <property name="buddy">
+    <cstring>patioEstacionamientoEdit</cstring>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="patioOtrosCheck">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>107</y>
+     <width>169</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Uso</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patioComercioLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>53</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Comercio:</string>
+   </property>
+   <property name="buddy">
+    <cstring>patioComercioCheck</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patioAbandonadoLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>80</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Abandonado:</string>
+   </property>
+   <property name="buddy">
+    <cstring>patioAbandonadoCheck</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="patioEstacionamientoEdit">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>134</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>100</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patioOcupacionLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>165</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Ocupación:</string>
+   </property>
+   <property name="buddy">
+    <cstring>patioOcupacionCmb</cstring>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="patioComercioCheck">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>53</y>
+     <width>169</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Uso</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="patioOcupacionCmb">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>165</y>
+     <width>169</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Ninguno</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="patioJardinLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>26</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Jardín:</string>
+   </property>
+   <property name="buddy">
+    <cstring>patioJardinCheck</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patioOtrosLbl">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>107</y>
+     <width>190</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>190</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>190</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Otros:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="patioAbandonadoCheck">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>80</y>
+     <width>169</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Uso</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

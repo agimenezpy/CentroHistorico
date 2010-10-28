@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ServiciosForm</class>
+ <widget class="QGroupBox" name="ServiciosForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>327</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Nivel de Servicios</string>
+  </property>
+  <property name="title">
+   <string>NIVEL DE SERVICIOS</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>248</width>
+     <height>302</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="servAguaLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Tiene agua de la red pública:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servAguaCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="servAguaCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="servDesagueLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>El desague de la calle es:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servDesagueCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="servDesagueCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="servHigieneLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Los servicios higienicos son:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servHigieneCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="servHigieneCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="servLavanderiasLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Lavanderias:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servLavanderiasCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="servLavanderiasCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="servLuzLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Servicios de luz:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servLuzCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="servLuzCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="servTransporteLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Transporte público:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="servTransporteCheck">
+      <property name="text">
+       <string>Tiene</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="servEstudiosLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Sus hijos estudian en:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servEstudiosCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QComboBox" name="servEstudiosCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="servRecreoLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Los domingos se recrean en:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servRecreoCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QComboBox" name="servRecreoCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="servBarrioLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Le gusta su barrio:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servBarrioCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QComboBox" name="servBarrioCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="servCambioLbl">
+      <property name="minimumSize">
+       <size>
+        <width>162</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>162</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Piensa cambiarse:</string>
+      </property>
+      <property name="buddy">
+       <cstring>servCambioCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QComboBox" name="servCambioCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

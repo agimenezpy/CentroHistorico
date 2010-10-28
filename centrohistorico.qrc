@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>icons/nuevo.png</file>
+        <file>icons/buscar.png</file>
+        <file>icons/salir.png</file>
+        <file>icons/barrios.png</file>
+        <file>icons/encuestadores.png</file>
+        <file>icons/qt.png</file>
+        <file>icons/close.png</file>
+        <file>icons/agregar.png</file>
+        <file>icons/borrar.png</file>
+        <file>icons/guardar.png</file>
+        <file>icons/buscar2.png</file>
+        <file>icons/detalles.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EntornoForm</class>
+ <widget class="QGroupBox" name="EntornoForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>226</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Entorno</string>
+  </property>
+  <property name="title">
+   <string>ENTORNO</string>
+  </property>
+  <widget class="QTableWidget" name="entornoTable">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>375</width>
+     <height>177</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>Vereda</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Calzada</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Vegetación</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Mobiliario</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Otros</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>MATERIAL</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>ESTADO</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>INCIDENCIA</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
