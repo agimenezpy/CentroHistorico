@@ -43,6 +43,8 @@ GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *p
     if (pIndex != 0) {
         isNew = false;
         mapper->setCurrentIndex(pIndex->row());
+        barrioEdit->setText(lookup("barrio","nombre",barrioIdEdit->text().toInt()));
+        encEdit->setText(lookup("encuestador","nombres || ' ' || apellidos",encIdEdit->text().toInt()));
     }
     else {
         int row = model->rowCount();
@@ -50,7 +52,13 @@ GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *p
         isNew = true;
         mapper->setCurrentIndex(row);
     }
-
+    QIntValidator *val = new QIntValidator(this);
+    val->setBottom(0);
+    numeroEdit->setValidator(val);
+    numeroEdifEdit->setValidator(val);
+    zonaEdit->setValidator(val);
+    manzanaEdit->setValidator(val);
+    loteEdit->setValidator(val);
 }
 
 void GeneralForm::onBarrioTextChanged(QString barrio) {
@@ -228,4 +236,15 @@ void GeneralForm::closeEvent(QCloseEvent *event) {
     if (isNew)
         model->removeRow(model->rowCount()-1);
     model->submitAll();
+}
+
+QString GeneralForm::lookup(QString table, QString column, int id) {
+    QSqlQuery query;
+    query.prepare(QString("SELECT %1 FROM %2 WHERE id = ?").arg(column,table));
+    query.bindValue(0,QVariant(id));
+    query.exec();
+    QString result = "";
+    if (query.next())
+        result = query.value(0).toString();
+    return result;
 }

@@ -9,13 +9,13 @@ void ComboDelegate::setEditorData(QWidget *editor,
 {
     if (!editor->metaObject()->userProperty().isValid()) {
         if (editor->property("currentIndex").isValid()) {
-            QComboBox *cmb = (QComboBox*) editor;
-            int i = 0;
-            for (i = 0; i < cmb->count(); i++) {
+            QComboBox *cmb = static_cast<QComboBox*>(editor);
+            int idx = 0;
+            for (int i = 1; i < cmb->count() && idx != 0; i++) {
                 if (index.data() == cmb->itemData(i, Qt::UserRole))
-                    break;
+                    idx = i;
             }
-            cmb->setCurrentIndex(i);
+            cmb->setCurrentIndex(idx);
             return;
         }
     }
@@ -27,7 +27,7 @@ void ComboDelegate::setModelData(QWidget *editor,
                      const QModelIndex &index) const
 {
     if (!editor->metaObject()->userProperty().isValid()) {
-        QComboBox *cmb = (QComboBox*) editor;
+        QComboBox *cmb = static_cast<QComboBox*>(editor);
         QVariant value = cmb->itemData(cmb->currentIndex(), Qt::UserRole);
         if (value.isValid()) {
             model->setData(index, value);

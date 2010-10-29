@@ -26,6 +26,7 @@ private:
     bool validar();
     bool check();
     bool isNew;
+    QString lookup(QString table, QString column, int id);
 };
 
 #endif // GENERALFORM_H

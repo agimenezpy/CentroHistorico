@@ -51,9 +51,6 @@
    <attribute name="horizontalHeaderDefaultSectionSize">
     <number>50</number>
    </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>50</number>
-   </attribute>
    <row>
     <property name="text">
      <string>ADMINIS/OFICINA</string>
@@ -227,7 +224,7 @@
        </size>
       </property>
       <property name="maxLength">
-       <number>5</number>
+       <number>1</number>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -282,5 +279,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>edifPisosEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>EdificacionForm</receiver>
+   <slot>modificarEdifiacion(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>292</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>modificarEdifiacion(QString)</slot>
+ </slots>
 </ui>
