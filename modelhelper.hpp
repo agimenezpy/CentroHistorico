@@ -9,7 +9,7 @@ class QWidget;
 
 class ModelHelper {
 public:
-    void submit();
+    bool submit();
     void revert();
 
 protected:

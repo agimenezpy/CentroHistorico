@@ -6,10 +6,8 @@
 class EntornoForm : public QGroupBox, private Ui::EntornoForm {
     Q_OBJECT
 public:
-    EntornoForm(QWidget *parent = 0);
+    EntornoForm(int cuenta, QWidget *parent = 0);
 
-protected:
-    void changeEvent(QEvent *e);
 };
 
 #endif // ENTORNOFORM_H

@@ -12,6 +12,8 @@ public:
 private slots:
     void cambiarFormulario(QTreeWidgetItem *item, int column);
     void guardarActual();
+    void cerrarForm();
+
 signals:
     void guardar();
 
@@ -20,7 +22,15 @@ protected:
 private:
     QWidget* actualForm;
     int cuenta;
-    QString last;
+    int lastIdx;
+    enum {
+        DIMENSION = 0,
+        EDIFICACION,
+        PATIOS,
+        ACCESO,
+        ENTORNO,
+        SERVICIOS
+    };
 };
 
 #endif // DETALLESFORM_H

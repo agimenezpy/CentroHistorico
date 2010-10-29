@@ -19,7 +19,8 @@ SOURCES += mainwindow.cpp \
     forms/entornoform.cpp \
     forms/serviciosform.cpp \
     modelhelper.cpp \
-    util/combodelegate.cpp
+    util/combodelegate.cpp \
+    util/combocolumnitemdelegate.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -36,7 +37,8 @@ HEADERS += mainwindow.h \
     forms/serviciosform.h \
     modelhelper.hpp \
     forms/commonform.hpp \
-    util/combodelegate.h
+    util/combodelegate.h \
+    util/combocolumnitemdelegate.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \

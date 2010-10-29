@@ -10,6 +10,11 @@
     <height>215</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Patios</string>
   </property>
@@ -59,6 +64,9 @@
    <property name="text">
     <string>Nº de Plazas de Estacionamiento:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
    <property name="buddy">
     <cstring>patioEstacionamientoEdit</cstring>
    </property>
@@ -106,6 +114,9 @@
    <property name="text">
     <string>Comercio:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
    <property name="buddy">
     <cstring>patioComercioCheck</cstring>
    </property>
@@ -139,6 +150,9 @@
    </property>
    <property name="text">
     <string>Abandonado:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <property name="buddy">
     <cstring>patioAbandonadoCheck</cstring>
@@ -198,6 +212,9 @@
    </property>
    <property name="text">
     <string>Ocupación:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <property name="buddy">
     <cstring>patioOcupacionCmb</cstring>
@@ -261,6 +278,9 @@
    <property name="text">
     <string>Jardín:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
    <property name="buddy">
     <cstring>patioJardinCheck</cstring>
    </property>
@@ -294,6 +314,9 @@
    </property>
    <property name="text">
     <string>Otros:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QCheckBox" name="patioAbandonadoCheck">

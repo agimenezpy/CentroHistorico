@@ -25,12 +25,14 @@ DimensionForm::DimensionForm(int cuenta, QWidget *parent) :
     loteSuperficieEdit->setValidator(val);
     loteOcupacionEdit->setValidator(val);
     loteEdificabilidadEdit->setValidator(val);
+    this->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void DimensionForm::closeEvent(QCloseEvent *event) {
     QGroupBox::closeEvent(event);
 }
 
-void DimensionForm::guardar() {
-    this->submit();
+void DimensionForm::guardar(bool close) {
+    if (this->submit() && close)
+        this->close();
 }

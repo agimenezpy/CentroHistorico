@@ -2,14 +2,14 @@
 #define SERVICIOSFORM_H
 
 #include "ui_serviciosform.h"
+#include "modelhelper.hpp"
 
-class ServiciosForm : public QGroupBox, private Ui::ServiciosForm {
+class ServiciosForm : public QGroupBox, public ModelHelper, private Ui::ServiciosForm {
     Q_OBJECT
 public:
-    ServiciosForm(QWidget *parent = 0);
+    ServiciosForm(int cuenta, QWidget *parent = 0);
+    void guardar(bool close = false);
 
-protected:
-    void changeEvent(QEvent *e);
 };
 
 #endif // SERVICIOSFORM_H

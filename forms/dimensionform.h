@@ -8,7 +8,7 @@ class DimensionForm : public QGroupBox, public ModelHelper, private Ui::Dimensio
     Q_OBJECT
 public:
     DimensionForm(int cuenta, QWidget *parent = 0);
-    void guardar();
+    void guardar(bool close = false);
 
 protected:
     void closeEvent(QCloseEvent *event);

@@ -19,6 +19,11 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Detalles de Cuenta</string>
   </property>
@@ -49,31 +54,23 @@
      </item>
      <item>
       <property name="text">
-       <string>Uso del Suelo</string>
+       <string>Edificación</string>
       </property>
-      <property name="flags">
-       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+     </item>
+     <item>
+      <property name="text">
+       <string>Patios</string>
       </property>
-      <item>
-       <property name="text">
-        <string>Edificación</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Patios</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Acceso</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Entorno</string>
-       </property>
-      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>Acceso</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Entorno</string>
+      </property>
      </item>
      <item>
       <property name="text">

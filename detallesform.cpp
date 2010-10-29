@@ -17,7 +17,7 @@ DetallesForm::DetallesForm(QWidget *parent, int cuenta) :
     formArea->layout()->addWidget(actualForm);
     formTree->setCurrentItem(formTree->itemAt(0,0));
     formTree->expandAll();
-    last = formTree->currentItem()->text(0);
+    lastIdx = formTree->currentIndex().row();
 }
 
 void DetallesForm::closeEvent(QCloseEvent *event) {
@@ -25,36 +25,45 @@ void DetallesForm::closeEvent(QCloseEvent *event) {
 }
 
 void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int column) {
-    if (item->childCount() == 0 &&
-        formTree->currentItem()->text(column) != last) {
-        if (actualForm != 0) {
-            actualForm->close();
-            delete actualForm;
-            actualForm = 0;
-        }
-        if (item->text(column) == "Dimensiones")
+    guardarActual();
+    int idx = formTree->indexOfTopLevelItem(item);
+    if (lastIdx == idx) {
+        if (idx == DIMENSION)
             actualForm = new DimensionForm(cuenta, this);
-        if (item->text(column) == "Edificación")
+        if (idx == EDIFICACION)
             actualForm = new EdificacionForm(this);
-        if (item->text(column) == "Patios")
+        if (idx == PATIOS)
             actualForm = new PatiosForm(cuenta, this);
-        if (item->text(column) == "Acceso")
-            actualForm = new AccesoForm(this);
-        if (item->text(column) == "Entorno")
-            actualForm = new EntornoForm(this);
-        if (item->text(column) == "Nivel de Servicios")
-            actualForm = new ServiciosForm(this);
+        if (idx == ACCESO)
+            actualForm = new AccesoForm(cuenta, this);
+        if (idx == ENTORNO)
+            actualForm = new EntornoForm(cuenta, this);
+        if (idx == SERVICIOS)
+            actualForm = new ServiciosForm(cuenta, this);
         if (actualForm != 0)
             formArea->layout()->addWidget(actualForm);
-        last = formTree->currentItem()->text(column);
+        connect(actualForm, SIGNAL(destroyed()), this, SLOT(cerrarForm()));
     }
+    else
+        formTree->setCurrentItem(formTree->itemAt(lastIdx,0));
 }
 
 void DetallesForm::guardarActual() {
     if (actualForm != 0) {
-        if (formTree->currentItem()->text(0) == "Dimensiones")
-            ((DimensionForm*) actualForm)->guardar();
-        if (formTree->currentItem()->text(0) == "Patios")
-            ((PatiosForm*) actualForm)->guardar();
+        bool close = (lastIdx != formTree->currentIndex().row());
+        if (lastIdx == DIMENSION)
+            static_cast<DimensionForm*>(actualForm)->guardar(close);
+        if (lastIdx == PATIOS)
+            static_cast<PatiosForm*>(actualForm)->guardar(close);
+        if (lastIdx == ACCESO)
+            static_cast<AccesoForm*>(actualForm)->guardar(close);
+        if (lastIdx == SERVICIOS)
+            static_cast<ServiciosForm*>(actualForm)->guardar(close);
     }
+}
+
+void DetallesForm::cerrarForm() {
+    connect(actualForm, SIGNAL(destroyed()), this, SLOT(cerrarForm()));
+    actualForm = 0;
+    lastIdx = formTree->currentIndex().row();
 }

@@ -11,7 +11,7 @@ void ComboDelegate::setEditorData(QWidget *editor,
         if (editor->property("currentIndex").isValid()) {
             QComboBox *cmb = static_cast<QComboBox*>(editor);
             int idx = 0;
-            for (int i = 1; i < cmb->count() && idx != 0; i++) {
+            for (int i = 1; i < cmb->count() && idx == 0; i++) {
                 if (index.data() == cmb->itemData(i, Qt::UserRole))
                     idx = i;
             }

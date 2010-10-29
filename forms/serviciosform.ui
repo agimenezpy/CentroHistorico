@@ -7,8 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>327</height>
+    <height>337</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Nivel de Servicios</string>
@@ -16,13 +21,13 @@
   <property name="title">
    <string>NIVEL DE SERVICIOS</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>20</y>
      <width>248</width>
-     <height>302</height>
+     <height>311</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -332,6 +337,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLineEdit" name="cuentaEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>10</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

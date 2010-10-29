@@ -27,17 +27,17 @@ void ModelHelper::init() {
     }
 }
 
-void ModelHelper::submit() {
+bool ModelHelper::submit() {
     mapper->submit();
-    //model->submitAll();
     if (model->lastError().isValid()) {
         QMessageBox::warning(0,QString("Error al guardar"), model->lastError().text());
         revert();
+        return false;
     }
     mapper->toFirst();
+    return true;
 }
 
 void ModelHelper::revert() {
     mapper->revert();
-    //model->revertAll();
 }

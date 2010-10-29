@@ -24,8 +24,10 @@ PatiosForm::PatiosForm(int cuenta, QWidget *parent) :
     patioEstacionamientoEdit->setValidator(val);
     patioOcupacionCmb->addItem("Temporal",QChar('T'));
     patioOcupacionCmb->addItem("Permanente",QChar('P'));
+    this->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-void PatiosForm::guardar() {
-    this->submit();
+void PatiosForm::guardar(bool close) {
+    if (this->submit() && close)
+        this->close();
 }

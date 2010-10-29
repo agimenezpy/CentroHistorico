@@ -2,14 +2,14 @@
 #define ACCESOFORM_H
 
 #include "ui_accesoform.h"
+#include "modelhelper.hpp"
 
-class AccesoForm : public QGroupBox, private Ui::AccesoForm {
+class AccesoForm : public QGroupBox, public ModelHelper, private Ui::AccesoForm {
     Q_OBJECT
 public:
-    AccesoForm(QWidget *parent = 0);
+    AccesoForm(int cuenta, QWidget *parent = 0);
+    void guardar(bool close = false);
 
-protected:
-    void changeEvent(QEvent *e);
 };
 
 #endif // ACCESOFORM_H
