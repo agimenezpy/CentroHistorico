@@ -54,23 +54,31 @@
      </item>
      <item>
       <property name="text">
-       <string>Edificación</string>
+       <string>Uso de Suelo</string>
       </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Patios</string>
+      <property name="flags">
+       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
       </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Acceso</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Entorno</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>Edificación</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Patios</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Acceso</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Entorno</string>
+       </property>
+      </item>
      </item>
      <item>
       <property name="text">
@@ -85,6 +93,49 @@
      <item>
       <property name="text">
        <string>Edad</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Aspecto/Naturaleza</string>
+      </property>
+      <property name="flags">
+       <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+      </property>
+      <item>
+       <property name="text">
+        <string>Tratamiento General</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fachada</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Huecos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Remates</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cubierta</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Estructura</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>Patologias</string>
       </property>
      </item>
      <item>

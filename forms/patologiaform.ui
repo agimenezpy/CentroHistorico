@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PatologiaForm</class>
+ <widget class="QGroupBox" name="PatologiaForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>549</width>
+    <height>376</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Patologias</string>
+  </property>
+  <property name="title">
+   <string>Patologias</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>481</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string notr="true">MATERIALES</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string notr="true">TEXTURA</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string notr="true">COLOR</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string notr="true">ALTERACIONES</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string notr="true">LETRETOS</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string notr="true">TG OTROS</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string notr="true">MA</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Manchas</string>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">DE</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Desprendimiento de revoque</string>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">OX</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Oxidaciones</string>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">PU</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Pudriciones</string>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">HU</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Humedad</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">GR</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Grietas</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">VE</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Vegetación</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">DS</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Desplome</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">AB</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Abombamiento</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">AS</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Asentamiento</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string notr="true">Otros</string>
+    </property>
+    <property name="toolTip">
+     <string notr="true">Otros</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

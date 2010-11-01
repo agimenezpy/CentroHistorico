@@ -23,13 +23,23 @@ private:
     int cuenta;
     enum {
         DIMENSION = 0,
-        EDIFICACION,
-        PATIOS,
-        ACCESO,
-        ENTORNO,
-        SERVICIOS,
-        OCUPACION,
-        EDAD
+        EDIFICACION = 10,
+        PATIOS = 11,
+        ACCESO = 12,
+        ENTORNO = 13,
+        SERVICIOS = 2,
+        OCUPACION = 3,
+        EDAD = 4,
+        TRATAMIENTO = 50,
+        FACHADA = 51,
+        HUECOS = 52,
+        REMATES = 53,
+        CUBIERTA = 54,
+        ESTRUCTURA = 55,
+        PATOLOGIAS = 6,
+        CONSERVACION = 7,
+        VALORACION = 8,
+        FOTOS = 9
     };
 };
 

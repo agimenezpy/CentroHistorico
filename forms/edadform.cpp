@@ -30,11 +30,11 @@ void EdadForm::guardar() {
 
 void EdadForm::cambio(int index) {
     if (index != 0) {
-        edadAnyoEdit->setEnabled(true);
+        edadAnyoEdit->setEnabled(false);
         edadAnyoEdit->setText("");
     }
     else {
-        edadAnyoEdit->setEnabled(false);
+        edadAnyoEdit->setEnabled(true);
         edadAnyoEdit->setFocus();
     }
 }
