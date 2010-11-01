@@ -25,7 +25,8 @@ SOURCES += mainwindow.cpp \
     forms/edadform.cpp \
     forms/patologiaform.cpp \
     forms/conservacionform.cpp \
-    forms/valoracionform.cpp
+    forms/valoracionform.cpp \
+    forms/fotosform.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -47,7 +48,8 @@ HEADERS += mainwindow.h \
     forms/edadform.h \
     forms/patologiaform.h \
     forms/conservacionform.h \
-    forms/valoracionform.h
+    forms/valoracionform.h \
+    forms/fotosform.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \
@@ -65,5 +67,6 @@ FORMS += mainwindow.ui \
     forms/edadform.ui \
     forms/patologiaform.ui \
     forms/conservacionform.ui \
-    forms/valoracionform.ui
+    forms/valoracionform.ui \
+    forms/fotosform.ui
 RESOURCES += centrohistorico.qrc

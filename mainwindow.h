@@ -13,9 +13,6 @@ class MainWindow : public QMainWindow, private Ui::MainWindow {
 public:
     MainWindow(QWidget *parent = 0);
 
-protected:
-    void changeEvent(QEvent *e);
-
 private slots:
     void showAbout();
     void showListado();

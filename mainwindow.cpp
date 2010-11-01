@@ -6,6 +6,7 @@
 #include "generalform.h"
 
 #include <QMdiSubWindow>
+#include <QSqlDatabase>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent) {
@@ -24,18 +25,6 @@ MainWindow::MainWindow(QWidget *parent) :
     listado = 0;
     barrio = 0;
     encuesta = 0;
-}
-
-void MainWindow::changeEvent(QEvent *e)
-{
-    QMainWindow::changeEvent(e);
-    switch (e->type()) {
-    case QEvent::LanguageChange:
-        retranslateUi(this);
-        break;
-    default:
-        break;
-    }
 }
 
 void MainWindow::showListado() {
