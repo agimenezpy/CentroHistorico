@@ -352,6 +352,19 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>servAguaCmb</tabstop>
+  <tabstop>servDesagueCmb</tabstop>
+  <tabstop>servHigieneCmb</tabstop>
+  <tabstop>servLavanderiasCmb</tabstop>
+  <tabstop>servLuzCmb</tabstop>
+  <tabstop>servTransporteCheck</tabstop>
+  <tabstop>servEstudiosCmb</tabstop>
+  <tabstop>servRecreoCmb</tabstop>
+  <tabstop>servBarrioCmb</tabstop>
+  <tabstop>servCambioCmb</tabstop>
+  <tabstop>cuentaEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

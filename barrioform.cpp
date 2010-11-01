@@ -1,8 +1,8 @@
 #include <QtGui/QMessageBox>
-#include <QtSql>
-
+#include <QSqlTableModel>
+#include <QSqlRecord>
+#include <QSqlQuery>
 #include "barrioform.h"
-#include "util.h"
 
 BarrioForm::BarrioForm(QWidget *parent) :
     QDialog(parent){
@@ -30,7 +30,6 @@ void BarrioForm::addBarrio() {
 }
 
 void BarrioForm::beforeInsertBarrio(QSqlRecord &record) {
-    record.setValue("id", generateId("barrio"));
     record.setValue("nombre", record.value("nombre").toString().toUpper());
 }
 

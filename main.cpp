@@ -1,7 +1,8 @@
-#include <QtGui>
-#include <QtSql>
-
 #include "mainwindow.h"
+#include <QApplication>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QMessageBox>
 
 bool createConnection();
 

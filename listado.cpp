@@ -1,8 +1,9 @@
-#include <QtGui/QMessageBox>
-#include <QtSql>
 #include "listado.h"
 #include "generalform.h"
 #include "detallesform.h"
+#include <QMessageBox>
+#include <QSqlTableModel>
+#include <QSqlRecord>
 
 Listado::Listado(QWidget *parent) :
     QDialog(parent){
@@ -10,10 +11,10 @@ Listado::Listado(QWidget *parent) :
     model = new QSqlTableModel(this);
     model->setTable("general");
     model->select();
-    model->setHeaderData(1, Qt::Horizontal, QString::fromUtf8("NÃºmero"));
+    model->setHeaderData(1, Qt::Horizontal, "Número");
     model->setHeaderData(0, Qt::Horizontal, "Cuenta Corriente");
-    model->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("DenominaciÃ³n"));
-    model->setHeaderData(2, Qt::Horizontal, QString::fromUtf8("DirecciÃ³n"));
+    model->setHeaderData(7, Qt::Horizontal, "Denominación");
+    model->setHeaderData(2, Qt::Horizontal, "Dirección");
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tableView->setModel(model);
     for (int i = 0; i < 14; i++) {

@@ -145,7 +145,7 @@
        <item>
         <widget class="QPushButton" name="guardarButton">
          <property name="text">
-          <string>Guardar</string>
+          <string>&amp;Guardar</string>
          </property>
          <property name="icon">
           <iconset resource="centrohistorico.qrc">
@@ -156,7 +156,7 @@
        <item>
         <widget class="QPushButton" name="cancelButton">
          <property name="text">
-          <string>Cancelar</string>
+          <string>&amp;Cancelar</string>
          </property>
          <property name="icon">
           <iconset resource="centrohistorico.qrc">

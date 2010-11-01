@@ -1,9 +1,15 @@
 #include "accesoform.h"
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
+
 AccesoForm::AccesoForm(int cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
+    accesoNivelCmb->setItemData(0,QChar('\0'));
+    accesoNivelCmb->addItem("Enrasado",QChar('E'));
+    accesoNivelCmb->addItem("Bajo",QChar('B'));
+    accesoNivelCmb->addItem("Alto",QChar('A'));
+
     cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
     construct(this,"acceso",cuentaEdit->text());
@@ -17,13 +23,9 @@ AccesoForm::AccesoForm(int cuenta, QWidget *parent) :
     mapper->addMapping(accesoGaleriaCheck, 6);
     mapper->addMapping(accesoModificadoCheck, 7);
     init();
-    accesoNivelCmb->addItem("Enrasado",QChar('E'));
-    accesoNivelCmb->addItem("Bajo",QChar('B'));
-    accesoNivelCmb->addItem("Alto",QChar('A'));
     this->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-void AccesoForm::guardar(bool close) {
-    if (this->submit() && close)
-        this->close();
+void AccesoForm::guardar() {
+    this->submit();
 }

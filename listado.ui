@@ -42,7 +42,7 @@
      <item>
       <widget class="QPushButton" name="buscarButton">
        <property name="text">
-        <string>Ir</string>
+        <string>&amp;Ir</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
@@ -73,7 +73,7 @@
      <item>
       <widget class="QPushButton" name="addButton">
        <property name="text">
-        <string>Agregar</string>
+        <string>&amp;Agregar</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
@@ -84,7 +84,7 @@
      <item>
       <widget class="QPushButton" name="detallesButton">
        <property name="text">
-        <string>Detalles</string>
+        <string>&amp;Detalles</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
@@ -98,7 +98,7 @@
         <string>Eliminar ficha</string>
        </property>
        <property name="text">
-        <string>Eliminar</string>
+        <string>&amp;Eliminar</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
@@ -125,7 +125,7 @@
         <string>Cerrar esta ventana</string>
        </property>
        <property name="text">
-        <string>Cerrar</string>
+        <string>&amp;Cerrar</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">

@@ -2,7 +2,7 @@
 #include <QTableWidget>
 #include <QComboBox>
 #include <QMetaProperty>
-#include <QtCore/QDebug>
+#include <QLabel>
 
 ComboColumnItemDelegate::ComboColumnItemDelegate(QMap<QString, QVariant>* data, QWidget* parent)
     : QItemDelegate(parent) {
@@ -51,10 +51,9 @@ void ComboColumnItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *
         model->setData(index, cmb->itemText(cmb->currentIndex()), Qt::DisplayRole);
     }
     else {
-        model->setData(index, QVariant(), Qt::UserRole);
+        model->setData(index, QChar('\0'), Qt::UserRole);
         model->setData(index, "", Qt::DisplayRole);
     }
-    qDebug() << cmb->itemData(cmb->currentIndex(), Qt::UserRole);
 }
 
 void ComboColumnItemDelegate::updateEditorGeometry(QWidget *editor,

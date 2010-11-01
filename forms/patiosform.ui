@@ -346,6 +346,15 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>patioJardinCheck</tabstop>
+  <tabstop>patioComercioCheck</tabstop>
+  <tabstop>patioAbandonadoCheck</tabstop>
+  <tabstop>patioOtrosCheck</tabstop>
+  <tabstop>patioEstacionamientoEdit</tabstop>
+  <tabstop>patioOcupacionCmb</tabstop>
+  <tabstop>cuentaEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

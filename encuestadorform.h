@@ -22,8 +22,8 @@ protected:
 private:
     enum {
         Encuestador_Id = 0,
-        Encuestador_Nombres = 1,
-        Encuestador_Apellidos = 2
+        Encuestador_Nombres,
+        Encuestador_Apellidos
     };
     QSqlTableModel *model;
 };

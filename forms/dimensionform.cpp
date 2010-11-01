@@ -1,8 +1,6 @@
 #include "dimensionform.h"
-#include <QtSql>
 #include <QDataWidgetMapper>
-#include <detallesform.h>
-#include <QtCore>
+#include <QDoubleValidator>
 
 DimensionForm::DimensionForm(int cuenta, QWidget *parent) :
     QGroupBox(parent) {
@@ -32,7 +30,6 @@ void DimensionForm::closeEvent(QCloseEvent *event) {
     QGroupBox::closeEvent(event);
 }
 
-void DimensionForm::guardar(bool close) {
-    if (this->submit() && close)
-        this->close();
+void DimensionForm::guardar() {
+    this->submit();
 }

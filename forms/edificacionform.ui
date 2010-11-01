@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>423</height>
+    <width>411</width>
+    <height>456</height>
    </rect>
   </property>
   <property name="font">
@@ -21,12 +21,12 @@
   <property name="title">
    <string>EDIFICACION</string>
   </property>
-  <widget class="QTableWidget" name="edificacionTable">
+  <widget class="QTableWidget" name="edifUsoSueloTable">
    <property name="geometry">
     <rect>
      <x>9</x>
      <y>54</y>
-     <width>361</width>
+     <width>240</width>
      <height>331</height>
     </rect>
    </property>
@@ -38,13 +38,13 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>361</width>
+     <width>240</width>
      <height>331</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>361</width>
+     <width>240</width>
      <height>331</height>
     </size>
    </property>
@@ -126,68 +126,14 @@
      <string>&gt;</string>
     </property>
    </column>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>9</x>
-     <y>391</y>
-     <width>273</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
-    <item>
-     <widget class="QLabel" name="editTotSuperficieLbl">
-      <property name="minimumSize">
-       <size>
-        <width>165</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>165</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Total Superficie Edificada (C):</string>
-      </property>
-      <property name="buddy">
-       <cstring>edifTotSuperficieEdit</cstring>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="edifTotSuperficieEdit">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="maxLength">
-       <number>5</number>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <item row="0" column="0">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flags">
+     <set>ItemIsEditable|ItemIsEnabled</set>
+    </property>
+   </item>
   </widget>
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
@@ -277,14 +223,128 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>393</y>
+     <width>273</width>
+     <height>58</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="edifTotSuperficieLbl">
+      <property name="minimumSize">
+       <size>
+        <width>165</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>165</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Total Superficie Edificada (C):</string>
+      </property>
+      <property name="buddy">
+       <cstring>edifTotSuperficieEdit</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="edifTotSuperficieEdit">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="maxLength">
+       <number>5</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="edifIntegradaLbl">
+      <property name="minimumSize">
+       <size>
+        <width>165</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>165</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Edificación:</string>
+      </property>
+      <property name="buddy">
+       <cstring>edifEdificacionCmb</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="edifEdificacionCmb">
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLineEdit" name="cuentaEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>-10</y>
+     <width>113</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>edifSuperficieEdit</tabstop>
+  <tabstop>edifPisosEdit</tabstop>
+  <tabstop>edifTotSuperficieEdit</tabstop>
+  <tabstop>edifEdificacionCmb</tabstop>
+  <tabstop>edifUsoSueloTable</tabstop>
+  <tabstop>cuentaEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>edifPisosEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>EdificacionForm</receiver>
-   <slot>modificarEdifiacion(QString)</slot>
+   <slot>modificarEdificacion(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>292</x>
@@ -298,6 +358,6 @@
   </connection>
  </connections>
  <slots>
-  <slot>modificarEdifiacion(QString)</slot>
+  <slot>modificarEdificacion(QString)</slot>
  </slots>
 </ui>

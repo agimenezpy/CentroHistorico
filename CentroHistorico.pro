@@ -20,7 +20,9 @@ SOURCES += mainwindow.cpp \
     forms/serviciosform.cpp \
     modelhelper.cpp \
     util/combodelegate.cpp \
-    util/combocolumnitemdelegate.cpp
+    util/combocolumnitemdelegate.cpp \
+    forms/ocupacionform.cpp \
+    forms/edadform.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -36,9 +38,10 @@ HEADERS += mainwindow.h \
     forms/entornoform.h \
     forms/serviciosform.h \
     modelhelper.hpp \
-    forms/commonform.hpp \
     util/combodelegate.h \
-    util/combocolumnitemdelegate.h
+    util/combocolumnitemdelegate.h \
+    forms/ocupacionform.h \
+    forms/edadform.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \
@@ -51,5 +54,7 @@ FORMS += mainwindow.ui \
     forms/patiosform.ui \
     forms/accesoform.ui \
     forms/entornoform.ui \
-    forms/serviciosform.ui
+    forms/serviciosform.ui \
+    forms/ocupacionform.ui \
+    forms/edadform.ui
 RESOURCES += centrohistorico.qrc

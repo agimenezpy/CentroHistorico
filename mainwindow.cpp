@@ -5,7 +5,7 @@
 #include "encuestadorform.h"
 #include "generalform.h"
 
-#include <QtGui/QMdiSubWindow>
+#include <QMdiSubWindow>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent) {

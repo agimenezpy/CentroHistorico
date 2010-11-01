@@ -8,7 +8,7 @@ class AccesoForm : public QGroupBox, public ModelHelper, private Ui::AccesoForm 
     Q_OBJECT
 public:
     AccesoForm(int cuenta, QWidget *parent = 0);
-    void guardar(bool close = false);
+    void guardar();
 
 };
 

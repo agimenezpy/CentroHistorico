@@ -15,6 +15,7 @@ public:
 protected:
     QSqlTableModel *model;
     QDataWidgetMapper *mapper;
+    QWidget *self;
     bool isNew;
     void construct(QWidget* parent, QString tableName, QString column);
     void init();

@@ -1,11 +1,14 @@
 #include "patiosform.h"
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
-#include <QtCore>
+#include <QDoubleValidator>
 
 PatiosForm::PatiosForm(int cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
+    patioOcupacionCmb->setItemData(0,QChar('\0'));
+    patioOcupacionCmb->addItem("Temporal",QChar('T'));
+    patioOcupacionCmb->addItem("Permanente",QChar('P'));
     QString ccc = QString("%1").arg(cuenta);
     cuentaEdit->setText(ccc);
     cuentaEdit->setVisible(false);
@@ -22,12 +25,9 @@ PatiosForm::PatiosForm(int cuenta, QWidget *parent) :
     QDoubleValidator *val = new QDoubleValidator(this);
     val->setBottom(0);
     patioEstacionamientoEdit->setValidator(val);
-    patioOcupacionCmb->addItem("Temporal",QChar('T'));
-    patioOcupacionCmb->addItem("Permanente",QChar('P'));
     this->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-void PatiosForm::guardar(bool close) {
-    if (this->submit() && close)
-        this->close();
+void PatiosForm::guardar() {
+    this->submit();
 }

@@ -1,9 +1,11 @@
-#include <QtGui/QMessageBox>
-#include <QtGui/QCompleter>
-#include <QValidator>
-#include <QtSql>
-#include <QDataWidgetMapper>
 #include "generalform.h"
+#include <QMessageBox>
+#include <QCompleter>
+#include <QValidator>
+#include <QSqlTableModel>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDataWidgetMapper>
 #include "util.h"
 
 GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *pIndex) :

@@ -121,6 +121,16 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>accesoCentralCheck</tabstop>
+  <tabstop>accesoEsquinaCheck</tabstop>
+  <tabstop>accesoLatIzqCheck</tabstop>
+  <tabstop>accesoGaleriaCheck</tabstop>
+  <tabstop>accesoLatDerCheck</tabstop>
+  <tabstop>accesoModificadoCheck</tabstop>
+  <tabstop>accesoNivelCmb</tabstop>
+  <tabstop>cuentaEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -1,8 +1,8 @@
 #include <QtGui/QMessageBox>
-#include <QtSql>
-
+#include <QSqlTableModel>
+#include <QSqlRecord>
+#include <QSqlQuery>
 #include "encuestadorform.h"
-#include "util.h"
 
 EncuestadorForm::EncuestadorForm(QWidget *parent) :
     QDialog(parent){
@@ -32,7 +32,6 @@ void EncuestadorForm::addEncuestador() {
 }
 
 void EncuestadorForm::beforeInsertEncuestador(QSqlRecord &record) {
-    record.setValue("id", generateId("encuestador"));
     record.setValue("nombres", record.value("nombres").toString().toUpper());
     record.setValue("apellidos", record.value("apellidos").toString().toUpper());
 }
