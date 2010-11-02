@@ -7,7 +7,7 @@
 class ConservacionForm : public QGroupBox, public ModelHelper, private Ui::ConservacionForm {
     Q_OBJECT
 public:
-    ConservacionForm(int cuenta, QWidget *parent = 0);
+    ConservacionForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
 };
 

@@ -19,7 +19,7 @@
    <string>Conservación</string>
   </property>
   <property name="title">
-   <string>Conservación</string>
+   <string>CONSERVACION</string>
   </property>
   <widget class="QLineEdit" name="cuentaEdit">
    <property name="enabled">

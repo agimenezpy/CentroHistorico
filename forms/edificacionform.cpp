@@ -5,7 +5,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
-EdificacionForm::EdificacionForm(int cuenta, QWidget *parent) :
+EdificacionForm::EdificacionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     edifEdificacionCmb->setItemData(0,QChar('\0'));

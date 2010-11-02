@@ -3,7 +3,7 @@
 #include <QDataWidgetMapper>
 #include <QCompleter>
 
-ValoracionForm::ValoracionForm(int cuenta, QWidget *parent) :
+ValoracionForm::ValoracionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     valCalificacionCmb->setItemData(0, QChar('\0'));

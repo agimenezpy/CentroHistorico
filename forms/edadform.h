@@ -7,7 +7,7 @@
 class EdadForm : public QGroupBox, public ModelHelper, private Ui::EdadForm {
     Q_OBJECT
 public:
-    EdadForm(int cuenta, QWidget *parent = 0);
+    EdadForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
 
 private slots:

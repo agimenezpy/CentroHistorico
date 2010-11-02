@@ -19,7 +19,7 @@
    <string>Edad</string>
   </property>
   <property name="title">
-   <string>Edad</string>
+   <string>EDAD</string>
   </property>
   <widget class="QLineEdit" name="cuentaEdit">
    <property name="enabled">

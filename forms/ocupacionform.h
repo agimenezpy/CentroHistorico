@@ -7,7 +7,7 @@
 class OcupacionForm : public QGroupBox, public ModelHelper, private Ui::OcupacionForm {
     Q_OBJECT
 public:
-    OcupacionForm(int cuenta, QWidget *parent = 0);
+    OcupacionForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
 
 };

@@ -2,7 +2,7 @@
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
 
-ServiciosForm::ServiciosForm(int cuenta, QWidget *parent) :
+ServiciosForm::ServiciosForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     servAguaCmb->setItemData(0,QChar('\0'));

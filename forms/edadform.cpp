@@ -3,7 +3,7 @@
 #include <QDataWidgetMapper>
 #include <QIntValidator>
 
-EdadForm::EdadForm(int cuenta, QWidget *parent) :
+EdadForm::EdadForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     edadAnyoCmb->setItemData(0,QChar('\0'));

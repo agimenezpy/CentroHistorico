@@ -7,9 +7,8 @@
 class PatiosForm : public QGroupBox, public ModelHelper, private Ui::PatiosForm {
     Q_OBJECT
 public:
-    PatiosForm(int cuenta, QWidget *parent = 0);
+    PatiosForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
-private:
     
 };
 

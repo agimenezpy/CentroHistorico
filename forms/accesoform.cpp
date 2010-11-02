@@ -2,7 +2,7 @@
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
 
-AccesoForm::AccesoForm(int cuenta, QWidget *parent) :
+AccesoForm::AccesoForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     accesoNivelCmb->setItemData(0,QChar('\0'));

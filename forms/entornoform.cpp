@@ -2,7 +2,7 @@
 #include "util/combocolumnitemdelegate.h"
 #include <QMap>
 
-EntornoForm::EntornoForm(int cuenta, QWidget *parent) :
+EntornoForm::EntornoForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     QMap<QString, QVariant>* pares = new QMap<QString, QVariant>;

@@ -7,7 +7,7 @@
 class EdificacionForm : public QGroupBox, public ModelHelper, private Ui::EdificacionForm {
     Q_OBJECT
 public:
-    EdificacionForm(int cuenta, QWidget *parent = 0);
+    EdificacionForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
 
 protected slots:

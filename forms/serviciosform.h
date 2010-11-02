@@ -7,7 +7,7 @@
 class ServiciosForm : public QGroupBox, public ModelHelper, private Ui::ServiciosForm {
     Q_OBJECT
 public:
-    ServiciosForm(int cuenta, QWidget *parent = 0);
+    ServiciosForm(const int &cuenta, QWidget *parent = 0);
     void guardar();
 
 };

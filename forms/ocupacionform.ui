@@ -10,11 +10,16 @@
     <height>119</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Forma de Ocupación</string>
   </property>
   <property name="title">
-   <string>Forma de Ocupación</string>
+   <string>FORMA DE OCUPACION</string>
   </property>
   <widget class="QLineEdit" name="cuentaEdit">
    <property name="enabled">
@@ -35,7 +40,7 @@
      <x>10</x>
      <y>20</y>
      <width>228</width>
-     <height>85</height>
+     <height>88</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">

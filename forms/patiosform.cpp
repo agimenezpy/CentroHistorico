@@ -3,7 +3,7 @@
 #include <QDataWidgetMapper>
 #include <QDoubleValidator>
 
-PatiosForm::PatiosForm(int cuenta, QWidget *parent) :
+PatiosForm::PatiosForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     patioOcupacionCmb->setItemData(0,QChar('\0'));

@@ -2,7 +2,7 @@
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
 
-ConservacionForm::ConservacionForm(int cuenta, QWidget *parent) :
+ConservacionForm::ConservacionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     consEstadoCmb->setItemData(0, QChar('\0'));

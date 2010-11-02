@@ -19,7 +19,7 @@
    <string>Valoración Historico Artistica</string>
   </property>
   <property name="title">
-   <string>Valoración Historico Artistica</string>
+   <string>VALORACION HISTORICO ARTISTICA</string>
   </property>
   <widget class="QLineEdit" name="cuentaEdit">
    <property name="enabled">
@@ -34,7 +34,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>

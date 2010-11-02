@@ -2,7 +2,7 @@
 #include <QDataWidgetMapper>
 #include <QDoubleValidator>
 
-DimensionForm::DimensionForm(int cuenta, QWidget *parent) :
+DimensionForm::DimensionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent) {
     setupUi(this);
     QString ccc = QString("%1").arg(cuenta);
@@ -24,10 +24,6 @@ DimensionForm::DimensionForm(int cuenta, QWidget *parent) :
     loteOcupacionEdit->setValidator(val);
     loteEdificabilidadEdit->setValidator(val);
     this->setAttribute(Qt::WA_DeleteOnClose);
-}
-
-void DimensionForm::closeEvent(QCloseEvent *event) {
-    QGroupBox::closeEvent(event);
 }
 
 void DimensionForm::guardar() {

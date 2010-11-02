@@ -3,7 +3,7 @@
 #include <QDataWidgetMapper>
 #include <QIntValidator>
 
-OcupacionForm::OcupacionForm(int cuenta, QWidget *parent) :
+OcupacionForm::OcupacionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
     setupUi(this);
     ocupTenenciaCmb->setItemData(0,QChar('\0'));
