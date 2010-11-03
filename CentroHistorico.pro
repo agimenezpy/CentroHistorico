@@ -26,7 +26,12 @@ SOURCES += mainwindow.cpp \
     forms/patologiaform.cpp \
     forms/conservacionform.cpp \
     forms/valoracionform.cpp \
-    forms/fotosform.cpp
+    forms/fotosform.cpp \
+    forms/rematesform.cpp \
+    forms/cubiertaform.cpp \
+    forms/estructuraform.cpp \
+    forms/tratamientoform.cpp \
+    forms/fachadaform.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -49,7 +54,12 @@ HEADERS += mainwindow.h \
     forms/patologiaform.h \
     forms/conservacionform.h \
     forms/valoracionform.h \
-    forms/fotosform.h
+    forms/fotosform.h \
+    forms/rematesform.h \
+    forms/cubiertaform.h \
+    forms/estructuraform.h \
+    forms/tratamientoform.h \
+    forms/fachadaform.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \
@@ -68,5 +78,10 @@ FORMS += mainwindow.ui \
     forms/patologiaform.ui \
     forms/conservacionform.ui \
     forms/valoracionform.ui \
-    forms/fotosform.ui
+    forms/fotosform.ui \
+    forms/rematesform.ui \
+    forms/cubiertaform.ui \
+    forms/estructuraform.ui \
+    forms/tratamientoform.ui \
+    forms/fachadaform.ui
 RESOURCES += centrohistorico.qrc

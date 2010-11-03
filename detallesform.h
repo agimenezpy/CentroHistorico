@@ -12,12 +12,12 @@ public:
 private slots:
     void cambiarFormulario(QTreeWidgetItem *item, int column);
     void guardarActual();
+    void siguiente();
+    void anterior();
 
 signals:
     void guardar();
 
-protected:
-    void closeEvent(QCloseEvent *event);
 private:
     QWidget* actualForm;
     int cuenta;
@@ -32,10 +32,9 @@ private:
         EDAD = 4,
         TRATAMIENTO = 50,
         FACHADA = 51,
-        HUECOS = 52,
-        REMATES = 53,
-        CUBIERTA = 54,
-        ESTRUCTURA = 55,
+        REMATES = 52,
+        CUBIERTA = 53,
+        ESTRUCTURA = 54,
         PATOLOGIAS = 6,
         CONSERVACION = 7,
         VALORACION = 8,

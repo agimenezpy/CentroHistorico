@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FachadaForm</class>
+ <widget class="QGroupBox" name="FachadaForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>625</width>
+    <height>413</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Fachada/Huecos</string>
+  </property>
+  <property name="title">
+   <string>FACHADA/HUECOS</string>
+  </property>
+  <widget class="QLabel" name="fachPisosLbl">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>35</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pisos:</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>381</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>50</number>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>50</number>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>ZOCALO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>COLUMNA/PILAR</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>MOLDURAS</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>PORTADA</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>GALERIA</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>ARCOS</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>ADINTELADO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>DECORADO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>BALCON VOLADIZO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>BALCON RECTO</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>OTROS</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>B</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>1º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>2º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>3º</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

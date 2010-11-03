@@ -7,8 +7,12 @@
 #include "forms/serviciosform.h"
 #include "forms/ocupacionform.h"
 #include "forms/edadform.h"
+#include "forms/rematesform.h"
+#include "forms/cubiertaform.h"
+#include "forms/estructuraform.h"
 #include "forms/conservacionform.h"
 #include "forms/valoracionform.h"
+#include "forms/fotosform.h"
 #include <QTreeWidgetItem>
 #include <QDebug>
 
@@ -23,11 +27,7 @@ DetallesForm::DetallesForm(QWidget *parent, int cuenta) :
     formTree->expandAll();
 }
 
-void DetallesForm::closeEvent(QCloseEvent *event) {
-    QDialog::closeEvent(event);
-}
-
-void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int column) {
+void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int /*column*/) {
     if (item->childCount() == 0) {
         if (actualForm != 0) {
             actualForm->close();
@@ -64,11 +64,23 @@ void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int column) {
             case EDAD:
                 actualForm = new EdadForm(cuenta, this);
                 break;
+            case REMATES:
+                actualForm = new RematesForm(cuenta, this);
+                break;
+            case CUBIERTA:
+                actualForm = new CubiertaForm(cuenta, this);
+                break;
+            case ESTRUCTURA:
+                actualForm = new EstructuraForm(cuenta, this);
+                break;
             case CONSERVACION:
                 actualForm = new ConservacionForm(cuenta, this);
                 break;
             case VALORACION:
                 actualForm = new ValoracionForm(cuenta, this);
+                break;
+            case FOTOS:
+                actualForm = new FotosForm(cuenta, this);
                 break;
         }
         if (actualForm != 0) {
@@ -108,6 +120,15 @@ void DetallesForm::guardarActual() {
             case EDAD:
                 static_cast<EdadForm*>(actualForm)->guardar();
                 break;
+            case REMATES:
+                static_cast<RematesForm*>(actualForm)->guardar();
+                break;
+            case CUBIERTA:
+                static_cast<CubiertaForm*>(actualForm)->guardar();
+                break;
+            case ESTRUCTURA:
+                static_cast<EstructuraForm*>(actualForm)->guardar();
+                break;
             case CONSERVACION:
                 static_cast<ConservacionForm*>(actualForm)->guardar();
                 break;
@@ -116,4 +137,28 @@ void DetallesForm::guardarActual() {
                 break;
         }
     }
+}
+
+void DetallesForm::siguiente() {
+    QTreeWidgetItem *item = formTree->itemBelow(formTree->currentItem());
+    if (item != 0) {
+        while (item->childCount() > 0)
+            item = formTree->itemBelow(item);
+        formTree->setCurrentItem(item);
+    }
+    else
+        formTree->setCurrentItem(formTree->topLevelItem(DIMENSION));
+    cambiarFormulario(formTree->currentItem(), 0);
+}
+
+void DetallesForm::anterior() {
+    QTreeWidgetItem *item = formTree->itemAbove(formTree->currentItem());
+    if (item != 0) {
+        while (item->childCount() > 0)
+            item = formTree->itemAbove(item);
+        formTree->setCurrentItem(item);
+    }
+    else
+        formTree->setCurrentItem(formTree->topLevelItem(FOTOS));
+    cambiarFormulario(formTree->currentItem(), 0);
 }

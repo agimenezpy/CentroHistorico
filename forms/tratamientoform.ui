@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TratamientoForm</class>
+ <widget class="QGroupBox" name="TratamientoForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>515</width>
+    <height>287</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Tratamiento General</string>
+  </property>
+  <property name="title">
+   <string>TRATAMIENTO GENERAL</string>
+  </property>
+  <widget class="QLabel" name="tratPisosLbl">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>52</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Plantas: </string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>481</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>MATERIALES</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>TEXTURA</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>COLOR</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>ALTERACIONES</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>LETREROS</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>OTROS</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>B</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>1a</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>2a</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>3a</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

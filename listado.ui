@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>DockWidget</string>
+   <string>Listado de Fichas</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -19,7 +19,10 @@
      <item>
       <widget class="QLabel" name="buscarLbl">
        <property name="text">
-        <string>Buscar:</string>
+        <string notr="true">B&amp;uscar:</string>
+       </property>
+       <property name="buddy">
+        <cstring>buscarEdit</cstring>
        </property>
       </widget>
      </item>
@@ -48,6 +51,9 @@
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/buscar2.png</normaloff>:/icons/buscar2.png</iconset>
        </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -73,11 +79,14 @@
      <item>
       <widget class="QPushButton" name="addButton">
        <property name="text">
-        <string>&amp;Agregar</string>
+        <string>A&amp;gregar</string>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/agregar.png</normaloff>:/icons/agregar.png</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -89,6 +98,9 @@
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/detalles.png</normaloff>:/icons/detalles.png</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -103,6 +115,9 @@
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/borrar.png</normaloff>:/icons/borrar.png</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -131,8 +146,11 @@
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
        <property name="default">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>

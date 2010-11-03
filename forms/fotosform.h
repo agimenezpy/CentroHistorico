@@ -1,23 +1,25 @@
 #ifndef FOTOSFORM_H
 #define FOTOSFORM_H
 
-#include <QGroupBox>
+#include "ui_fotosform.h"
+#include <QModelIndex>
 
-namespace Ui {
-    class FotosForm;
-}
+class QSqlRelationalTableModel;
 
-class FotosForm : public QGroupBox {
+class FotosForm : public QGroupBox, private Ui::FotosForm {
     Q_OBJECT
 public:
-    FotosForm(QWidget *parent = 0);
-    ~FotosForm();
+    FotosForm(const int &cuenta, QWidget *parent = 0);
 
-protected:
-    void changeEvent(QEvent *e);
+private slots:
+    void mostrarImagen(QModelIndex index);
+    void agregarImagen();
+    void eliminarImagen();
+    void asignarFoto();
 
 private:
-    Ui::FotosForm *ui;
+    QSqlRelationalTableModel *model;
+    int ccc;
 };
 
 #endif // FOTOSFORM_H

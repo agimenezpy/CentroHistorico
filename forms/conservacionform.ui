@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>293</width>
-    <height>174</height>
+    <width>283</width>
+    <height>151</height>
    </rect>
   </property>
   <property name="font">
@@ -34,13 +34,13 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>271</width>
-     <height>143</height>
+     <x>11</x>
+     <y>21</y>
+     <width>261</width>
+     <height>120</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -69,7 +69,7 @@
     <item row="0" column="1">
      <widget class="QLineEdit" name="consUsoEdit">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -104,7 +104,7 @@
     <item row="1" column="1">
      <widget class="QLineEdit" name="consReconvertidaEdit">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -129,50 +129,26 @@
        </size>
       </property>
       <property name="text">
-       <string>Obra en marcha:</string>
-      </property>
-      <property name="buddy">
-       <cstring>consObraMarchaCheck</cstring>
+       <string>Tipo de Obra:</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QCheckBox" name="consObraMarchaCheck">
-      <property name="text">
-       <string>Si</string>
+     <widget class="QComboBox" name="consObraCmb">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
+      <item>
+       <property name="text">
+        <string>Ninguno</string>
+       </property>
+      </item>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="consObraInterrumpidaLbl">
-      <property name="minimumSize">
-       <size>
-        <width>104</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>104</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Obra interrumpida:</string>
-      </property>
-      <property name="buddy">
-       <cstring>consObraInterrumpidaCheck</cstring>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="consObraInterrumpidaCheck">
-      <property name="text">
-       <string>Si</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
      <widget class="QLabel" name="consEstadoLbl">
       <property name="minimumSize">
        <size>
@@ -194,7 +170,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="3" column="1">
      <widget class="QComboBox" name="consEstadoCmb">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">

@@ -114,11 +114,6 @@
       </item>
       <item>
        <property name="text">
-        <string>Huecos</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>Remates</string>
        </property>
       </item>
@@ -194,6 +189,40 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="anteriorButton">
+         <property name="text">
+          <string>&amp;Anterior</string>
+         </property>
+         <property name="icon">
+          <iconset resource="centrohistorico.qrc">
+           <normaloff>:/icons/anterior.png</normaloff>:/icons/anterior.png</iconset>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+Left</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="siguienteButton">
+         <property name="text">
+          <string>&amp;Siguiente</string>
+         </property>
+         <property name="icon">
+          <iconset resource="centrohistorico.qrc">
+           <normaloff>:/icons/siguiente.png</normaloff>:/icons/siguiente.png</iconset>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+Right</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="guardarButton">
          <property name="text">
           <string>&amp;Guardar</string>
@@ -201,6 +230,9 @@
          <property name="icon">
           <iconset resource="centrohistorico.qrc">
            <normaloff>:/icons/guardar.png</normaloff>:/icons/guardar.png</iconset>
+         </property>
+         <property name="default">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -212,6 +244,9 @@
          <property name="icon">
           <iconset resource="centrohistorico.qrc">
            <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -273,9 +308,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>siguienteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DetallesForm</receiver>
+   <slot>siguiente()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>560</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>anteriorButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DetallesForm</receiver>
+   <slot>anterior()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>469</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>cambiarFormulario(QTreeWidgetItem*,int)</slot>
   <slot>guardarActual()</slot>
+  <slot>siguiente()</slot>
+  <slot>anterior()</slot>
  </slots>
 </ui>

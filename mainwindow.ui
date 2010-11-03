@@ -59,7 +59,7 @@
    </widget>
    <widget class="QMenu" name="menuConfiguraci_n">
     <property name="title">
-     <string>&amp;Configuración</string>
+     <string>Con&amp;figuración</string>
     </property>
     <addaction name="actionBarrios"/>
     <addaction name="actionEncuestadores"/>

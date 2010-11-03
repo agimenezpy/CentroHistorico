@@ -4,7 +4,7 @@
 #include "ui_encuestadorform.h"
 
 class QSqlRecord;
-class QSqlTableModel;
+class QSqlRelationalTableModel;
 
 class EncuestadorForm : public QDialog, private Ui::EncuestadorForm {
     Q_OBJECT
@@ -22,10 +22,11 @@ protected:
 private:
     enum {
         Encuestador_Id = 0,
+        Encuestador_Titulo,
         Encuestador_Nombres,
         Encuestador_Apellidos
     };
-    QSqlTableModel *model;
+    QSqlRelationalTableModel *model;
 };
 
 #endif // ENCUESTADORFORM_H

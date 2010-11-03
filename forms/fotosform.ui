@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="font">
@@ -21,7 +21,206 @@
   <property name="title">
    <string>FOTOS/PLANOS</string>
   </property>
+  <property name="alignment">
+   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="imageLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>240</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>320</width>
+         <height>240</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="text">
+        <string notr="true">Imagen no disponible</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTableView" name="tableView"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="agregarButton">
+         <property name="text">
+          <string>&amp;Agregar</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../centrohistorico.qrc">
+           <normaloff>:/icons/agregar.png</normaloff>:/icons/agregar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="fotoButton">
+         <property name="text">
+          <string>Cam&amp;biar Foto</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../centrohistorico.qrc">
+           <normaloff>:/icons/imagen.png</normaloff>:/icons/imagen.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="eliminarButton">
+         <property name="text">
+          <string>&amp;Eliminar</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../centrohistorico.qrc">
+           <normaloff>:/icons/borrar.png</normaloff>:/icons/borrar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>78</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="../centrohistorico.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>tableView</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>FotosForm</receiver>
+   <slot>mostrarImagen(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>agregarButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FotosForm</receiver>
+   <slot>agregarImagen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>eliminarButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FotosForm</receiver>
+   <slot>eliminarImagen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fotoButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FotosForm</receiver>
+   <slot>asignarFoto()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>450</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>mostrarImagen(QModelIndex)</slot>
+  <slot>agregarImagen()</slot>
+  <slot>eliminarImagen()</slot>
+  <slot>asignarFoto()</slot>
+ </slots>
 </ui>

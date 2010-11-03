@@ -12,5 +12,8 @@
         <file>icons/guardar.png</file>
         <file>icons/buscar2.png</file>
         <file>icons/detalles.png</file>
+        <file>icons/imagen.png</file>
+        <file>icons/siguiente.png</file>
+        <file>icons/anterior.png</file>
     </qresource>
 </RCC>
