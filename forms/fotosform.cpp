@@ -22,13 +22,14 @@ FotosForm::FotosForm(const int &cuenta, QWidget *parent) : QGroupBox(parent) {
     tableView->setColumnHidden(4,true);
     tableView->setColumnWidth(2, 200);
     tableView->setColumnWidth(3, 80);
-    tableView->setItemDelegateForColumn(3, new QSqlRelationalDelegate(this));
+    tableView->setItemDelegateForColumn(3, new QSqlRelationalDelegate(tableView));
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ccc = cuenta;
 }
 
 void FotosForm::mostrarImagen(QModelIndex index) {
-    QImage imagen(model->record(index.row()).value(4).toString());
+    QString filename = model->record(index.row()).value(4).toString();
+    QImage imagen(filename);
     if (!imagen.isNull()) {
         imageLabel->setPixmap(
                 QPixmap::fromImage(
@@ -39,7 +40,7 @@ void FotosForm::mostrarImagen(QModelIndex index) {
     }
     else {
         imageLabel->setPixmap(0);
-        imageLabel->setText("Imagen no disponible");
+        imageLabel->setText(QString("Imagen no disponible<br>%1").arg(filename));
     }
 }
 

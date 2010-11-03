@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>625</width>
-    <height>413</height>
+    <height>428</height>
    </rect>
   </property>
   <property name="font">
@@ -21,24 +21,11 @@
   <property name="title">
    <string>FACHADA/HUECOS</string>
   </property>
-  <widget class="QLabel" name="fachPisosLbl">
+  <widget class="QTableWidget" name="fachadaTable">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
-     <width>35</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Pisos:</string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
+     <y>50</y>
      <width>381</width>
      <height>361</height>
     </rect>
@@ -135,6 +122,63 @@
      <string>&gt;</string>
     </property>
    </column>
+  </widget>
+  <widget class="QLineEdit" name="cuentaEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>0</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>143</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="fachPisosLbl">
+      <property name="text">
+       <string>Pisos:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="fachPisosEdit">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="maxLength">
+       <number>5</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -9,10 +9,9 @@ PatiosForm::PatiosForm(const int &cuenta, QWidget *parent) :
     patioOcupacionCmb->setItemData(0,QChar('\0'));
     patioOcupacionCmb->addItem("Temporal",QChar('T'));
     patioOcupacionCmb->addItem("Permanente",QChar('P'));
-    QString ccc = QString("%1").arg(cuenta);
-    cuentaEdit->setText(ccc);
+    cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
-    construct(this, "patio", ccc);
+    construct(this, "patio", cuentaEdit->text());
     mapper->setItemDelegate(new ComboDelegate(this));
     mapper->addMapping(cuentaEdit, 0);
     mapper->addMapping(patioEstacionamientoEdit, 1);

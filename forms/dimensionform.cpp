@@ -5,10 +5,9 @@
 DimensionForm::DimensionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent) {
     setupUi(this);
-    QString ccc = QString("%1").arg(cuenta);
-    cuentaEdit->setText(ccc);
+    cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
-    construct(this, QString("dimension"), ccc);
+    construct(this, QString("dimension"), cuentaEdit->text());
     mapper->addMapping(cuentaEdit, 0);
     mapper->addMapping(loteAnchoEdit, 1);
     mapper->addMapping(loteLargoEdit, 2);

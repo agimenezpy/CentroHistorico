@@ -1,7 +1,7 @@
 #ifndef MODELHELPER_HPP
 #define MODELHELPER_HPP
 
-#include <QtCore/QString>
+#include <QString>
 
 class QSqlTableModel;
 class QDataWidgetMapper;

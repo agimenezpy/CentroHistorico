@@ -16,6 +16,7 @@ protected slots:
 private:
     QTableWidgetItem *createTableItem();
     void setUsoSuelo();
+    int exist;
 };
 
 #endif // EDIFICACIONFORM_H

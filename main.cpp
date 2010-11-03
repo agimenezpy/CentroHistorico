@@ -4,7 +4,6 @@
 #include <QSqlError>
 #include <QMessageBox>
 #include <QFile>
-#include <QDebug>
 
 bool createConnections();
 bool openDb(const QString &filename, const QString &dsn = "");

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>515</width>
-    <height>287</height>
+    <width>541</width>
+    <height>314</height>
    </rect>
   </property>
   <property name="font">
@@ -21,84 +21,172 @@
   <property name="title">
    <string>TRATAMIENTO GENERAL</string>
   </property>
-  <widget class="QLabel" name="tratPisosLbl">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>52</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Plantas: </string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>481</width>
-     <height>231</height>
-    </rect>
-   </property>
-   <row>
-    <property name="text">
-     <string>MATERIALES</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>TEXTURA</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>COLOR</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>ALTERACIONES</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>LETREROS</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>OTROS</string>
-    </property>
-   </row>
-   <column>
-    <property name="text">
-     <string>B</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>1a</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>2a</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>3a</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>&gt;</string>
-    </property>
-   </column>
-  </widget>
+  <property name="alignment">
+   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="cuentaEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="tratPisosLbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Plantas: </string>
+       </property>
+       <property name="buddy">
+        <cstring>tratPisoEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="tratPisoEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="maxLength">
+        <number>5</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tratamientoTable">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>221</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>221</height>
+      </size>
+     </property>
+     <row>
+      <property name="text">
+       <string>MATERIALES</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>TEXTURA</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>COLOR</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>ALTERACIONES</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>LETREROS</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>OTROS</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>B</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>1a</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>2a</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>3a</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>&gt;</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>28</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

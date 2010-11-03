@@ -7,6 +7,8 @@
 #include "forms/serviciosform.h"
 #include "forms/ocupacionform.h"
 #include "forms/edadform.h"
+#include "forms/tratamientoform.h"
+#include "forms/fachadaform.h"
 #include "forms/rematesform.h"
 #include "forms/cubiertaform.h"
 #include "forms/estructuraform.h"
@@ -14,7 +16,6 @@
 #include "forms/valoracionform.h"
 #include "forms/fotosform.h"
 #include <QTreeWidgetItem>
-#include <QDebug>
 
 
 DetallesForm::DetallesForm(QWidget *parent, int cuenta) :
@@ -63,6 +64,12 @@ void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int /*column*/) {
                 break;
             case EDAD:
                 actualForm = new EdadForm(cuenta, this);
+                break;
+            case TRATAMIENTO:
+                actualForm = new TratamientoForm(cuenta, this);
+                break;
+            case FACHADA:
+                actualForm = new FachadaForm(cuenta, this);
                 break;
             case REMATES:
                 actualForm = new RematesForm(cuenta, this);
@@ -119,6 +126,12 @@ void DetallesForm::guardarActual() {
                 break;
             case EDAD:
                 static_cast<EdadForm*>(actualForm)->guardar();
+                break;
+            case TRATAMIENTO:
+                static_cast<TratamientoForm*>(actualForm)->guardar();
+                break;
+            case FACHADA:
+                static_cast<FachadaForm*>(actualForm)->guardar();
                 break;
             case REMATES:
                 static_cast<RematesForm*>(actualForm)->guardar();

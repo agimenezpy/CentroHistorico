@@ -11,10 +11,9 @@ EdificacionForm::EdificacionForm(const int &cuenta, QWidget *parent) :
     edifEdificacionCmb->setItemData(0,QChar('\0'));
     edifEdificacionCmb->addItem("Integrada", QChar('I'));
     edifEdificacionCmb->addItem("No integrada", QChar('N'));
-    QString ccc = QString("%1").arg(cuenta);
-    cuentaEdit->setText(ccc);
+    cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
-    construct(this,"edificacion",ccc);
+    construct(this,"edificacion", cuentaEdit->text());
     mapper->setItemDelegate(new ComboDelegate(this));
     mapper->addMapping(cuentaEdit, 0);
     mapper->addMapping(edifSuperficieEdit, 1);
@@ -44,7 +43,7 @@ void EdificacionForm::modificarEdificacion(QString textChanged) {
     if (textChanged.size() > 0) {
         pos = textChanged.toInt();
     }
-    for (int j = 0; j <= edifUsoSueloTable->columnCount(); j++) {
+    for (int j = 0; j < edifUsoSueloTable->columnCount(); j++) {
         if (j <= pos)
             edifUsoSueloTable->showColumn(j);
         else
@@ -65,29 +64,44 @@ void EdificacionForm::guardar() {
         QSqlQuery query;
         QSqlDatabase::database().transaction();
         int cuenta = cuentaEdit->text().toInt();
-        query.prepare("DELETE FROM uso_suelo WHERE cuenta_id = ?");
-        query.bindValue(0, cuenta);
-        query.exec();
-        if (!query.lastError().isValid()) {
-            query.prepare("INSERT INTO uso_suelo VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-            query.bindValue(1,cuenta);
-            cuenta = cuenta*10;
-            int pisos = edifPisosEdit->text().toInt();
-            if (pisos >= edifUsoSueloTable->columnCount())
-                pisos = edifUsoSueloTable->columnCount() - 1;
-            for (int col = 0; col <= pisos; col++) {
-                query.bindValue(0,cuenta + col);
-                for (int row = 0; row < edifUsoSueloTable->rowCount(); row++)
-                    query.bindValue(row+2,edifUsoSueloTable->item(row,col)->checkState() == Qt::Checked);
-                query.exec();
-            }
-            if (!query.lastError().isValid()) {
-                QSqlDatabase::database().commit();
-                return;
-            }
+        int pisos = edifPisosEdit->text().toInt();
+        bool error = false;
+        if (pisos < 4) {
+            query.prepare("DELETE FROM uso_suelo WHERE piso > ?");
+            query.addBindValue(cuenta*10+pisos);
+            query.exec();
+            if (query.lastError().isValid())
+                error = true;
         }
-        QMessageBox::warning(this,QString("Error al guardar"), query.lastError().text());
-        QSqlDatabase::database().rollback();
+
+        //query.prepare("INSERT INTO uso_suelo VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        QString updateStm = QString("UPDATE uso_suelo SET %1 WHERE piso = ?").arg(
+        "cuenta_id = ?,adm_oficina = ?,comercio_gm = ?,comercio_pm = ?,despensa = ?,bar_cafe = ?,hotel = ?,sanidad = ?,recreo = ?,religioso = ?,otros = ?"
+        );
+        QString insertStm = QString("INSERT INTO uso_suelo (%1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)").arg(
+        "cuenta_id,adm_oficina,comercio_gm,comercio_pm,despensa,bar_cafe,hotel,sanidad,recreo,religioso,otros,piso"
+        );
+        if (pisos >= edifUsoSueloTable->columnCount())
+            pisos = edifUsoSueloTable->columnCount() - 1;
+
+        for (int col = 0; col <= pisos && !error ; col++) {
+            if (col < exist)
+                query.prepare(updateStm);
+            else
+                query.prepare(insertStm);
+            query.bindValue(0,cuenta);
+            for (int row = 0; row < edifUsoSueloTable->rowCount(); row++)
+                query.bindValue(row+1,edifUsoSueloTable->item(row,col)->checkState() == Qt::Checked);
+            query.bindValue(11,cuenta*10 + col);
+            query.exec();
+        }
+        if (!error) {
+            QSqlDatabase::database().commit();
+        }
+        else {
+            QMessageBox::warning(this,"Error al guardar", query.lastError().text());
+            QSqlDatabase::database().rollback();
+        }
     }
 }
 
@@ -106,5 +120,8 @@ void EdificacionForm::setUsoSuelo() {
             }
             col++;
         }
+        exist = col;
     }
+    else
+        exist = 0;
 }
