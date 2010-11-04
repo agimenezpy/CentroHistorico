@@ -126,14 +126,6 @@
      <string>&gt;</string>
     </property>
    </column>
-   <item row="0" column="0">
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flags">
-     <set>ItemIsEditable|ItemIsEnabled</set>
-    </property>
-   </item>
   </widget>
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">

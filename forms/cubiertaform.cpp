@@ -7,17 +7,17 @@ CubiertaForm::CubiertaForm(const int &cuenta, QWidget *parent) :
     setupUi(this);
     cubTipoCmb->addItem("Horizontal", QChar('H'));
     cubTipoCmb->addItem("Inclinada", QChar('I'));
-    cubIncCmb->setItemData(0, QChar('\0'));
-    cubIncCmb->addItem("Teja", QChar('T'));
-    cubIncCmb->addItem("Zinc", QChar('Z'));
-    cubIncCmb->addItem("Asb", QChar('A'));
-    cubIncCmb->setEnabled(false);
+    cubTejaCheck->setEnabled(false);
+    cubZincCheck->setEnabled(false);
+    cubAsbCheck->setEnabled(false);
     cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
     construct(this,"cubierta",cuentaEdit->text());
     mapper->addMapping(cuentaEdit, 0);
     mapper->addMapping(cubTipoCmb, 1);
-    mapper->addMapping(cubIncCmb, 2);
+    mapper->addMapping(cubTejaCheck, 2);
+    mapper->addMapping(cubZincCheck, 3);
+    mapper->addMapping(cubAsbCheck, 4);
     mapper->setItemDelegate(new ComboDelegate(this));
     init();
     establecerInclinada(cubTipoCmb->currentIndex());
@@ -28,10 +28,14 @@ void CubiertaForm::guardar() {
 }
 
 void CubiertaForm::establecerInclinada(int index) {
+    bool en = true;
     if (index != 2) {
-        cubIncCmb->setCurrentIndex(0);
-        cubIncCmb->setEnabled(false);
+        en = false;
+        cubTejaCheck->setChecked(en);
+        cubZincCheck->setChecked(en);
+        cubAsbCheck->setChecked(en);
     }
-    else
-        cubIncCmb->setEnabled(true);
+    cubTejaCheck->setEnabled(en);
+    cubZincCheck->setEnabled(en);
+    cubAsbCheck->setEnabled(en);
 }

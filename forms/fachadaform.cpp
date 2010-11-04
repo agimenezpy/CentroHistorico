@@ -79,7 +79,8 @@ void FachadaForm::guardar() {
     int cuenta = cuentaEdit->text().toInt();
     int pisos = fachPisosEdit->text().toInt();
     if (pisos < 4) {
-        query.prepare("DELETE FROM fachada WHERE piso > ?");
+        query.prepare("DELETE FROM fachada WHERE cuenta_id = ? AND piso > ?");
+        query.addBindValue(cuenta);
         query.addBindValue(cuenta*10+pisos);
         query.exec();
         if (query.lastError().isValid())

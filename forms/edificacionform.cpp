@@ -67,7 +67,8 @@ void EdificacionForm::guardar() {
         int pisos = edifPisosEdit->text().toInt();
         bool error = false;
         if (pisos < 4) {
-            query.prepare("DELETE FROM uso_suelo WHERE piso > ?");
+            query.prepare("DELETE FROM uso_suelo WHERE cuenta_id = ? AND piso > ?");
+            query.addBindValue(cuenta);
             query.addBindValue(cuenta*10+pisos);
             query.exec();
             if (query.lastError().isValid())

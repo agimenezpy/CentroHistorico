@@ -89,7 +89,8 @@ void TratamientoForm::guardar() {
     int cuenta = cuentaEdit->text().toInt();
     int pisos = tratPisoEdit->text().toInt();
     if (pisos < 4) {
-        query.prepare("DELETE FROM tratamiento_general WHERE piso > ?");
+        query.prepare("DELETE FROM tratamiento_general WHERE cuenta_id = ? AND piso > ?");
+        query.addBindValue(cuenta);
         query.addBindValue(cuenta*10+pisos);
         query.exec();
         if (query.lastError().isValid())

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>549</width>
-    <height>376</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="font">
@@ -21,146 +21,1292 @@
   <property name="title">
    <string>PATOLOGIAS</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>481</width>
-     <height>331</height>
-    </rect>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
    </property>
-   <row>
-    <property name="text">
-     <string notr="true">MATERIALES</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string notr="true">TEXTURA</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string notr="true">COLOR</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string notr="true">ALTERACIONES</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string notr="true">LETRETOS</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string notr="true">TG OTROS</string>
-    </property>
-   </row>
-   <column>
-    <property name="text">
-     <string notr="true">MA</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Manchas</string>
-    </property>
-    <property name="whatsThis">
-     <string notr="true"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">DE</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Desprendimiento de revoque</string>
-    </property>
-    <property name="whatsThis">
-     <string notr="true"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">OX</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Oxidaciones</string>
-    </property>
-    <property name="whatsThis">
-     <string notr="true"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">PU</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Pudriciones</string>
-    </property>
-    <property name="whatsThis">
-     <string notr="true"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">HU</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Humedad</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">GR</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Grietas</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">VE</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Vegetación</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">DS</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Desplome</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">AB</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Abombamiento</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">AS</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Asentamiento</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string notr="true">Otros</string>
-    </property>
-    <property name="toolTip">
-     <string notr="true">Otros</string>
-    </property>
-   </column>
-  </widget>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLineEdit" name="cuentaEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maxLength">
+      <number>5</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolBox" name="patologiaTbx">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tratamientoPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>636</width>
+        <height>262</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Tratamiento General</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>632</width>
+            <height>258</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="tratamientoTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>540</width>
+               <height>178</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>540</width>
+               <height>178</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">MATERIALES</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">TEXTURA</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">COLOR</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ALTERACIONES</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">LETRETOS</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="fachadaPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>96</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Fachada</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>548</width>
+            <height>178</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="fachadaTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>548</width>
+               <height>178</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>540</width>
+               <height>178</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">ZOCALO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">COLUMNA/PILAR</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">MOLDURAS</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">PORTADA</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>GALERIA</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="huecosPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>96</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Fachada/Huecos</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea_3">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>564</width>
+            <height>178</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="huecosTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>564</width>
+               <height>178</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>564</width>
+               <height>178</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">ARCOS</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ADINTELADO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">DECORADO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">BALCON BOLADIZO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>BALCON RECTO</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>102</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="rematesPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>96</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Remates</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea_4">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>256</width>
+            <height>148</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="rematesTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>540</width>
+               <height>148</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>5</width>
+               <height>0</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">ALERO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">CORNISA</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ANTEPECHO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">BALAUSTRADA</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>132</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="cubiertaPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>96</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Cubierta</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea_5">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_5">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>526</width>
+            <height>148</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="cubiertaTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>526</width>
+               <height>148</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>526</width>
+               <height>148</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>5</width>
+               <height>0</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">HORIZONTAL</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">TEJA</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ZINC</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ASBESTO</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>132</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="estructuraPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>636</width>
+        <height>287</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Estructura</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QScrollArea" name="scrollArea_6">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>632</width>
+            <height>283</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="estructuraTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>515</width>
+               <height>208</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>515</width>
+               <height>208</height>
+              </size>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>40</number>
+             </attribute>
+             <row>
+              <property name="text">
+               <string notr="true">PISO</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">MUROS</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">PILARES</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">VIGAS</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string notr="true">ARCOS</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>ESCALERA</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string notr="true">MA</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Manchas</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desprendimiento de revoque</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">OX</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Oxidaciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">PU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Pudriciones</string>
+              </property>
+              <property name="whatsThis">
+               <string notr="true"/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">HU</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Humedad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">GR</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Grietas</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">VE</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Vegetación</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">DS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Desplome</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AB</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Abombamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">AS</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Asentamiento</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string notr="true">Otros</string>
+              </property>
+              <property name="toolTip">
+               <string notr="true">Otros</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>72</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

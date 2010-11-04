@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>241</width>
-    <height>57</height>
+    <width>164</width>
+    <height>124</height>
    </rect>
   </property>
   <property name="font">
@@ -39,7 +39,7 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>221</width>
+     <width>131</width>
      <height>27</height>
     </rect>
    </property>
@@ -69,22 +69,46 @@
       </item>
      </widget>
     </item>
-    <item>
-     <widget class="QComboBox" name="cubIncCmb">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <item>
-       <property name="text">
-        <string>Ninguno</string>
-       </property>
-      </item>
-     </widget>
-    </item>
    </layout>
+  </widget>
+  <widget class="QCheckBox" name="cubTejaCheck">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>50</y>
+     <width>79</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Teja</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cubZincCheck">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>70</y>
+     <width>79</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Zinc</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cubAsbCheck">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>90</y>
+     <width>79</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Asbesto</string>
+   </property>
   </widget>
  </widget>
  <resources/>

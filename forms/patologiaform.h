@@ -2,14 +2,19 @@
 #define PATOLOGIAFORM_H
 
 #include "ui_patologiaform.h"
+#include "modelhelper.hpp"
 
-class PatologiaForm : public QGroupBox, private Ui::PatologiaForm {
+class PatologiaForm : public QGroupBox, public ModelHelper, private Ui::PatologiaForm {
     Q_OBJECT
 public:
-    PatologiaForm(QWidget *parent = 0);
-
-protected:
-    void changeEvent(QEvent *e);
+    PatologiaForm(const int &cuenta, QWidget *parent = 0);
+    void guardar();
+private:
+    void inicializarTabla(QTableWidget *tabla, const int &offset);
+    void setTabla(QTableWidget *tabla, const int &offset);
+    void setCoded(QTableWidget *tabla, const int &offset);
+    QTableWidgetItem *createTableItem();
+    int coded_values[29];
 };
 
 #endif // PATOLOGIAFORM_H

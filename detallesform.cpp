@@ -12,6 +12,7 @@
 #include "forms/rematesform.h"
 #include "forms/cubiertaform.h"
 #include "forms/estructuraform.h"
+#include "forms/patologiaform.h"
 #include "forms/conservacionform.h"
 #include "forms/valoracionform.h"
 #include "forms/fotosform.h"
@@ -80,6 +81,9 @@ void DetallesForm::cambiarFormulario(QTreeWidgetItem *item, int /*column*/) {
             case ESTRUCTURA:
                 actualForm = new EstructuraForm(cuenta, this);
                 break;
+            case PATOLOGIAS:
+                actualForm = new PatologiaForm(cuenta, this);
+                break;
             case CONSERVACION:
                 actualForm = new ConservacionForm(cuenta, this);
                 break;
@@ -141,6 +145,9 @@ void DetallesForm::guardarActual() {
                 break;
             case ESTRUCTURA:
                 static_cast<EstructuraForm*>(actualForm)->guardar();
+                break;
+            case PATOLOGIAS:
+                static_cast<PatologiaForm*>(actualForm)->guardar();
                 break;
             case CONSERVACION:
                 static_cast<ConservacionForm*>(actualForm)->guardar();
