@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include <QSqlTableModel>
 #include <QSqlRecord>
+#include <QSqlQuery>
+#include <QSqlError>
 
 Listado::Listado(QWidget *parent) :
     QDialog(parent){
@@ -62,5 +64,44 @@ void Listado::detalles() {
         int cuenta = model->record(index.row()).value("cuenta").toInt();
         DetallesForm *detallesForm = new DetallesForm(this,cuenta);
         detallesForm->show();
+    }
+}
+
+void Listado::eliminar() {
+    QModelIndex index = tableView->currentIndex();
+    if (index.isValid()) {
+        int cuenta = model->record(index.row()).value("cuenta").toInt();
+        int respuesta = QMessageBox::question(this,"Eliminar Registro", "¿Está seguro que desea eliminar el registro seleccionado?", "Si", "No");
+        if (respuesta == 0) {
+            QSqlDatabase::database().transaction();
+            QStringList tables;
+            QSqlQuery query;
+            tables << "acceso" << "entorno" << "remates"
+                   << "estructura" << "servicio" << "conservacion"
+                   << "fachada" << "cubierta"
+                   << "dimension" << "imagen" << "tratamiento_general"
+                   << "edad" << "ocupacion" << "uso_suelo"
+                   << "edificacion" << "patio" << "valoracion"
+                   << "patologia";
+            bool error = false;
+            for (int ta = 0; ta < tables.count() && !error; ta++) {
+                query.prepare(QString("DELETE FROM %1 WHERE cuenta_id = ?").arg(tables.at(ta)));
+                query.bindValue(0,cuenta);
+                query.exec();
+                if (query.lastError().isValid())
+                    error = true;
+            }
+            if (!error) {
+                model->removeRow(index.row());
+                model->submitAll();
+                tableView->reset();
+                QSqlDatabase::database().commit();
+                QMessageBox::information(this,"Eliminar registros","Datos eliminados con éxito");
+            }
+            else {
+                QSqlDatabase::database().rollback();
+                QMessageBox::warning(this,"Eliminar registros","No se pudeo eliminar el registro");
+            }
+        }
     }
 }

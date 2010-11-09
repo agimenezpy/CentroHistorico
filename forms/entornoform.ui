@@ -71,6 +71,19 @@
     </property>
    </column>
   </widget>
+  <widget class="QLineEdit" name="cuentaEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>0</y>
+     <width>113</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

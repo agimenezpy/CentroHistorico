@@ -242,11 +242,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>deleteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Listado</receiver>
+   <slot>eliminar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>editFicha(QModelIndex)</slot>
   <slot>addFicha()</slot>
   <slot>filtrar()</slot>
   <slot>detalles()</slot>
+  <slot>eliminar()</slot>
  </slots>
 </ui>

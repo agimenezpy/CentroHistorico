@@ -9,10 +9,6 @@ ComboColumnItemDelegate::ComboColumnItemDelegate(QMap<QString, QVariant>* data, 
     pairs = data;
 }
 
-ComboColumnItemDelegate::~ComboColumnItemDelegate() {
-    delete pairs;
-}
-
 QWidget *ComboColumnItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option,
                                           const QModelIndex &index) const {
     QComboBox* cmb = new QComboBox(parent);

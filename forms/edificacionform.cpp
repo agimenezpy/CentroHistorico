@@ -95,9 +95,13 @@ void EdificacionForm::guardar() {
                 query.bindValue(row+1,edifUsoSueloTable->item(row,col)->checkState() == Qt::Checked);
             query.bindValue(11,cuenta*10 + col);
             query.exec();
+            if (query.lastError().isValid())
+                error = true;
         }
         if (!error) {
             QSqlDatabase::database().commit();
+            isNew = false;
+            setUsoSuelo();
         }
         else {
             QMessageBox::warning(this,"Error al guardar", query.lastError().text());

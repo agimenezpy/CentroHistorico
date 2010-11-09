@@ -681,8 +681,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>96</width>
-        <height>75</height>
+        <width>636</width>
+        <height>262</height>
        </rect>
       </property>
       <attribute name="label">
@@ -705,8 +705,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>256</width>
-            <height>148</height>
+            <width>632</width>
+            <height>258</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -723,6 +723,12 @@
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>540</width>
+               <height>148</height>
+              </size>
              </property>
              <property name="maximumSize">
               <size>
@@ -1095,8 +1101,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>636</width>
-        <height>287</height>
+        <width>96</width>
+        <height>75</height>
        </rect>
       </property>
       <attribute name="label">
@@ -1119,8 +1125,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>632</width>
-            <height>283</height>
+            <width>515</width>
+            <height>208</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_13">

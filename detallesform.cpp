@@ -122,6 +122,9 @@ void DetallesForm::guardarActual() {
             case ACCESO:
                 static_cast<AccesoForm*>(actualForm)->guardar();
                 break;
+            case ENTORNO:
+                static_cast<EntornoForm*>(actualForm)->guardar();
+                break;
             case SERVICIOS:
                 static_cast<ServiciosForm*>(actualForm)->guardar();
                 break;

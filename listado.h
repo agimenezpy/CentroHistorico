@@ -20,6 +20,7 @@ private slots:
     void editFicha(QModelIndex index);
     void filtrar();
     void detalles();
+    void eliminar();
 
 protected:
     void closeEvent(QCloseEvent *e);
