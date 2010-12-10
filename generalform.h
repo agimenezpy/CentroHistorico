@@ -4,8 +4,10 @@
 #include "ui_generalform.h"
 
 class QSqlTableModel;
+class QSqlRecord;
 class QDataWidgetMapper;
 class QModelIndex;
+class EncuestadorPickForm;
 
 class GeneralForm : public QDialog, private Ui::GeneralForm {
     Q_OBJECT
@@ -15,18 +17,26 @@ public:
 protected:
     void closeEvent(QCloseEvent *event);
 
-private slots:
+private slots:   
     void onBarrioTextChanged(QString barrio);
     void onEncuestadorTextChanged(QString encuestador);
     void updateCuentaCorriente();
     void guardar();
+    void beforeInsertGeneral(QSqlRecord &record);
+    void onCuentaCorrienteTextChanged(QString cuenta);
+    void abrirNuevoEncuestador();
+    void hideEncuesta();
+    void onPickEncuesta(int id, QString nombres, QString apellidos);
 private:
     QSqlTableModel *model;
     QDataWidgetMapper *mapper;
+    EncuestadorPickForm *encuesta;
     bool validar();
     bool check();
     bool isNew;
     QString lookup(QString table, QString column, int id);
+    int getId();
+    int getCuentaCorriente();
 };
 
 #endif // GENERALFORM_H

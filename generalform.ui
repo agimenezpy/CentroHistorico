@@ -32,6 +32,9 @@
    <bool>true</bool>
   </property>
   <layout class="QFormLayout" name="formLayout">
+   <property name="fieldGrowthPolicy">
+    <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+   </property>
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -58,14 +61,14 @@
         <string>Cuenta Corriente:</string>
        </property>
        <property name="buddy">
-        <cstring>cuentaEdit</cstring>
+        <cstring>cuentaCorrienteEdit</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="cuentaEdit">
+      <widget class="QLineEdit" name="cuentaCorrienteEdit">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -86,13 +89,16 @@
         </size>
        </property>
        <property name="inputMask">
-        <string/>
+        <string>00-0000-00;_</string>
+       </property>
+       <property name="text">
+        <string>--</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="readOnly">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -116,8 +122,8 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -153,6 +159,12 @@
          <width>0</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="inputMask">
+        <string notr="true">00-0000;_</string>
+       </property>
+       <property name="text">
+        <string notr="true">-</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -240,18 +252,18 @@
       <widget class="QLineEdit" name="numeroEdifEdit">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>150</width>
          <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>150</width>
          <height>25</height>
         </size>
        </property>
        <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
@@ -639,6 +651,17 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="agregarEncButton">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="centrohistorico.qrc">
+         <normaloff>:/icons/encuestadores.png</normaloff>:/icons/encuestadores.png</iconset>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="9" column="0">
@@ -659,8 +682,8 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -751,6 +774,9 @@
    </item>
    <item row="11" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_12">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
      <item>
       <widget class="QLabel" name="comentLabel">
        <property name="minimumSize">
@@ -774,7 +800,20 @@
       </widget>
      </item>
      <item>
-      <widget class="QPlainTextEdit" name="commentEdit"/>
+      <widget class="QPlainTextEdit" name="commentEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -948,11 +987,45 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>cuentaCorrienteEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>GeneralForm</receiver>
+   <slot>onCuentaCorrienteTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>agregarEncButton</sender>
+   <signal>clicked()</signal>
+   <receiver>GeneralForm</receiver>
+   <slot>abrirNuevoEncuestador()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onBarrioTextChanged(QString)</slot>
   <slot>onEncuestadorTextChanged(QString)</slot>
   <slot>updateCuentaCorriente()</slot>
   <slot>guardar()</slot>
+  <slot>onCuentaCorrienteTextChanged(QString)</slot>
+  <slot>abrirNuevoEncuestador()</slot>
  </slots>
 </ui>

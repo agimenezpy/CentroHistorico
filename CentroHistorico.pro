@@ -31,7 +31,8 @@ SOURCES += mainwindow.cpp \
     forms/cubiertaform.cpp \
     forms/estructuraform.cpp \
     forms/tratamientoform.cpp \
-    forms/fachadaform.cpp
+    forms/fachadaform.cpp \
+    forms/encuestadorpickform.cpp
 HEADERS += mainwindow.h \
     about.h \
     listado.h \
@@ -59,7 +60,8 @@ HEADERS += mainwindow.h \
     forms/cubiertaform.h \
     forms/estructuraform.h \
     forms/tratamientoform.h \
-    forms/fachadaform.h
+    forms/fachadaform.h \
+    forms/encuestadorpickform.h
 FORMS += mainwindow.ui \
     about.ui \
     listado.ui \
@@ -83,5 +85,6 @@ FORMS += mainwindow.ui \
     forms/cubiertaform.ui \
     forms/estructuraform.ui \
     forms/tratamientoform.ui \
-    forms/fachadaform.ui
+    forms/fachadaform.ui \
+    forms/encuestadorpickform.ui
 RESOURCES += centrohistorico.qrc

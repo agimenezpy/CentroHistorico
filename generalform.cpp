@@ -4,9 +4,11 @@
 #include <QValidator>
 #include <QSqlTableModel>
 #include <QSqlQuery>
+#include <QSqlRecord>
 #include <QSqlError>
 #include <QDataWidgetMapper>
 #include "util.h"
+#include "forms/encuestadorpickform.h"
 
 GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *pIndex) :
     QDialog(parent) {
@@ -26,20 +28,20 @@ GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *p
         isNew = true;
     }
     mapper->setModel(model);
-    mapper->addMapping(cuentaEdit, 0);
-    mapper->addMapping(numeroEdit, 1);
-    mapper->addMapping(direccionEdit, 2);
-    mapper->addMapping(numeroEdifEdit, 3);
-    mapper->addMapping(zonaEdit, 4);
-    mapper->addMapping(manzanaEdit, 5);
-    mapper->addMapping(loteEdit, 6);
-    mapper->addMapping(denomEdit, 7);
-    mapper->addMapping(denomHistEdit, 8);
-    mapper->addMapping(barrioIdEdit, 9);
-    mapper->addMapping(encIdEdit, 10);
-    mapper->addMapping(fechaEdit, 11);
-    mapper->addMapping(cataEdit, 12);
-    mapper->addMapping(commentEdit, 13);
+    mapper->addMapping(cuentaCorrienteEdit, 1);
+    mapper->addMapping(numeroEdit, 2);
+    mapper->addMapping(direccionEdit, 3);
+    mapper->addMapping(numeroEdifEdit, 4);
+    mapper->addMapping(zonaEdit, 5);
+    mapper->addMapping(manzanaEdit, 6);
+    mapper->addMapping(loteEdit, 7);
+    mapper->addMapping(denomEdit, 8);
+    mapper->addMapping(denomHistEdit, 9);
+    mapper->addMapping(barrioIdEdit, 10);
+    mapper->addMapping(encIdEdit, 11);
+    mapper->addMapping(fechaEdit, 12);
+    mapper->addMapping(cataEdit, 13);
+    mapper->addMapping(commentEdit, 14);
 
     mapper->submit();
     if (pIndex != 0) {
@@ -56,11 +58,16 @@ GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *p
     }
     QIntValidator *val = new QIntValidator(this);
     val->setBottom(0);
-    numeroEdit->setValidator(val);
-    numeroEdifEdit->setValidator(val);
     zonaEdit->setValidator(val);
     manzanaEdit->setValidator(val);
     loteEdit->setValidator(val);
+
+    QRegExp rxTmp("\\d+(,\\d+)*");
+    QRegExpValidator *rx = new QRegExpValidator(rxTmp, this);
+    numeroEdifEdit->setValidator(rx);
+
+    connect(model, SIGNAL(beforeInsert(QSqlRecord&)),
+            this, SLOT(beforeInsertGeneral(QSqlRecord&)));
 }
 
 void GeneralForm::onBarrioTextChanged(QString barrio) {
@@ -128,24 +135,25 @@ void GeneralForm::onEncuestadorTextChanged(QString encuestador) {
 }
 
 void GeneralForm::updateCuentaCorriente() {
-    cuentaEdit->setText(QVariant(zonaEdit->text().toInt()*1000000 +
-                                 manzanaEdit->text().toInt()*100 +
-                                 loteEdit->text().toInt()).toString());
+    cuentaCorrienteEdit->setText(QVariant(getCuentaCorriente()).toString());
 }
 
 bool GeneralForm::validar() {
     QIntValidator *zonaVal = new QIntValidator(this);
     QIntValidator *intVal = new QIntValidator(this);
+    QRegExp rx("\\d{2}-\\d{4}-\\d{2}");
+    QRegExpValidator *cuentaVal = new QRegExpValidator(rx,this);
     zonaVal->setRange(10,15);
-    QString s = numeroEdit->text();
     int pos = 0;
-    if (s.length() == 0 || intVal->validate(s, pos) == QValidator::Invalid) {
+    QString s = cuentaCorrienteEdit->text();
+    if (s.length() == 0 || cuentaVal->validate(s, pos) != QValidator::Acceptable) {
         QMessageBox::information(this,
-                                 "Al completar Número de Inventario",
-                                 "<b>Número de Inventario</b> debe ser un número.");
-        numeroEdit->setFocus();
+                                 "Al completar la Cuenta",
+                                 "<b>Cuenta</b> inválida.");
+        cuentaCorrienteEdit->setFocus();
         return false;
     }
+
     s = zonaEdit->text();
     if (s.length() == 0 || zonaVal->validate(s, pos) != QValidator::Acceptable) {
         QMessageBox::information(this,
@@ -197,29 +205,8 @@ bool GeneralForm::validar() {
     return true;
 }
 
-bool GeneralForm::check() {
-    QString title("Al completar %1");
-    QString msg("<b>%1</b> ya existe.");
-    if (exist("general","cuenta",cuentaEdit->text())) {
-        QMessageBox::information(this,
-                                 title.arg("Cuenta Corriente"),
-                                 msg.arg("Cuenta Corriente"));
-        cuentaEdit->setFocus();
-        return false;
-    }
-    if (exist("general","numero_inventario",numeroEdit->text())) {
-        QString item("Número de Inventario");
-        QMessageBox::information(this,
-                                 title.arg(item),
-                                 msg.arg(item));
-        numeroEdit->setFocus();
-        return false;
-    }
-    return true;
-}
-
 void GeneralForm::guardar() {
-    if (validar() && (!isNew || check())) {
+    if (validar() && !isNew) {
         mapper->submit();
         model->submitAll();
         if (model->lastError().isValid()) {
@@ -249,4 +236,61 @@ QString GeneralForm::lookup(QString table, QString column, int id) {
     if (query.next())
         result = query.value(0).toString();
     return result;
+}
+
+int GeneralForm::getId() {
+    QSqlQuery query;
+    query.prepare("SELECT MAX(id) FROM general WHERE cuenta_corriente = ?");
+    query.bindValue(0, cuentaCorrienteEdit->text());
+    query.exec();
+    int id = 0;
+    if (query.next())
+        id = query.value(0).toInt() + 1;
+    return id;
+}
+
+int GeneralForm::getCuentaCorriente() {
+    return zonaEdit->text().toInt()*1000000 +
+            manzanaEdit->text().toInt()*100 +
+            loteEdit->text().toInt();
+}
+
+void GeneralForm::beforeInsertGeneral(QSqlRecord &record) {
+    int base = getCuentaCorriente()*100;
+    int last = getId();
+    if (last == 0)
+        last = base;
+    else
+        last = last - base + 1;
+    record.setValue("cuenta",last);
+}
+
+void GeneralForm::onCuentaCorrienteTextChanged(QString cuenta) {
+    QStringList lista = cuenta.split("-");
+    for (int i = 0; i < lista.size(); i++) {
+        if (i == 0 && lista.at(i).size() > 0)
+            zonaEdit->setText(lista.at(i));
+        if (i == 1 && lista.at(i).size() > 0)
+            manzanaEdit->setText(lista.at(i));
+        if (i == 2 && lista.at(i).size() > 0)
+            loteEdit->setText(lista.at(i));
+    }
+}
+
+void GeneralForm::abrirNuevoEncuestador() {
+    encuesta = new EncuestadorPickForm;
+    encuesta->setAttribute(Qt::WA_DeleteOnClose);
+    encuesta->show();
+    encuesta->setFocus(Qt::ActiveWindowFocusReason);
+    connect(encuesta, SIGNAL(destroyed()), this, SLOT(hideEncuesta()));
+    connect(encuesta, SIGNAL(pick(int,QString,QString)), this, SLOT(onPickEncuesta(int,QString,QString)));
+}
+
+void GeneralForm::onPickEncuesta(int id, QString nombres, QString apellidos) {
+    encEdit->setText(nombres + " " + apellidos);
+}
+
+void GeneralForm::hideEncuesta() {
+    disconnect(encuesta, SIGNAL(destroyed()), this, SLOT(hideEncuesta()));
+    encuesta = 0;
 }

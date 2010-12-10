@@ -19,14 +19,13 @@ CREATE TABLE "encuestador" (
 ;
 CREATE TABLE "general" (
     "cuenta" integer NOT NULL PRIMARY KEY,
-    "cuenta_rpr" varchar(12) NOT NULL,
+    "cuenta_corriente" varchar(12) NOT NULL,
     "numero_inventario" varchar(8),
     "direccion" varchar(150) NOT NULL,
     "numero_edificacion" varchar(80) NOT NULL,
     "zona" smallint NOT NULL,
     "manzana" smallint NOT NULL,
     "lote" smallint NOT NULL,
-    "fraccion" varchar(1),
     "denom_edificacion" varchar(100) NOT NULL,
     "denom_historica" varchar(100) NOT NULL,
     "barrio_id" integer NOT NULL REFERENCES "barrio" ("id"),
