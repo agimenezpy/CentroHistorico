@@ -3,6 +3,7 @@
 
 #include "ui_patologiaform.h"
 #include "modelhelper.hpp"
+#include <QStringList>
 
 class PatologiaForm : public QGroupBox, public ModelHelper, private Ui::PatologiaForm {
     Q_OBJECT
@@ -13,8 +14,9 @@ private:
     void inicializarTabla(QTableWidget *tabla, const int &offset);
     void setTabla(QTableWidget *tabla, const int &offset);
     void setCoded(QTableWidget *tabla, const int &offset);
-    QTableWidgetItem *createTableItem();
+    QTableWidgetItem *createTableItem(bool check);
     int coded_values[29];
+    QStringList otros;
 };
 
 #endif // PATOLOGIAFORM_H

@@ -40,6 +40,9 @@
          <height>25</height>
         </size>
        </property>
+       <property name="inputMask">
+        <string>00-0000-00;_</string>
+       </property>
       </widget>
      </item>
      <item>

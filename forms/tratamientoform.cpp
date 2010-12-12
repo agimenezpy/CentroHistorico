@@ -1,8 +1,9 @@
 #include "tratamientoform.h"
 #include <QTableWidgetItem>
+#include <QSqlTableModel>
+#include <QDataWidgetMapper>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QSqlError>
 #include <QMessageBox>
 
 TratamientoForm::TratamientoForm(const int &cuenta, QWidget *parent) :
@@ -10,6 +11,9 @@ TratamientoForm::TratamientoForm(const int &cuenta, QWidget *parent) :
     setupUi(this);
     cuentaEdit->setText(QString("%1").arg(cuenta));
     cuentaEdit->setVisible(false);
+    construct(this,"tratamiento_general",cuentaEdit->text());
+    mapper->addMapping(cuentaEdit, 0);
+    init();
 
     for (int row = 0; row < tratamientoTable->rowCount(); row++) {
         for (int col = 0 ; col < tratamientoTable->columnCount(); col++) {
@@ -58,72 +62,42 @@ QTableWidgetItem *TratamientoForm::createCheckItem() {
 }
 
 void TratamientoForm::setTratamiento() {
-    QSqlQuery query;
-    query.prepare("SELECT * FROM tratamiento_general WHERE cuenta_id = ? ORDER BY piso");
-    query.bindValue(0, cuentaEdit->text());
-    query.exec();
-    int col = 0;
-    exist = 0;
-    while (query.next()) {
+    QModelIndex indext,indexm;
+    int offset = 1;
+    int pisos = tratPisoEdit->text().toInt();
+    for (int col = 0; col < tratamientoTable->columnCount() && col <= pisos; col++) {
         for (int row = 0; row < tratamientoTable->rowCount(); row++) {
+            indext = tratamientoTable->model()->index(row,col);
+            indexm = model->index(mapper->currentIndex(), row+offset);
             if (row == 3 || row == 5) {
-                if (query.value(row+2).toBool())
+                if (model->data(indexm).toBool())
                     tratamientoTable->item(row,col)->setCheckState(Qt::Checked);
             }
-            else
-                tratamientoTable->item(row,col)->setText(query.value(row+2).toString());
+            else {
+                tratamientoTable->model()->setData(indext,model->data(indexm),Qt::DisplayRole);
+                tratamientoTable->item(row,col)->setText(model->data(indexm).toString());
+            }
         }
-        col++;
+        offset += 6;
     }
-    exist = col;
 }
 
 void TratamientoForm::guardar() {
-    if (!save)
-        return;
-    QString insertStm = "INSERT INTO tratamiento_general (cuenta_id,materiales,textura,color,alteraciones,letreros,otros,piso) VALUES (?,?,?,?,?,?,?,?)";
-    QString updateStm = "UPDATE tratamiento_general SET cuenta_id = ?,materiales = ?,textura = ?,color = ?,alteraciones = ?,letreros = ?,otros = ? WHERE piso = ?";
-    QSqlDatabase::database().transaction();
-    QSqlQuery query;
-    bool error = false;
-    int cuenta = cuentaEdit->text().toInt();
-    int pisos = tratPisoEdit->text().toInt();
-    if (pisos < 4) {
-        query.prepare("DELETE FROM tratamiento_general WHERE cuenta_id = ? AND piso > ?");
-        query.addBindValue(cuenta);
-        query.addBindValue(cuenta*10+pisos);
-        query.exec();
-        if (query.lastError().isValid())
-            error = true;
-    }
-
-    if (pisos >= tratamientoTable->columnCount())
-        pisos = tratamientoTable->columnCount() - 1;
-
-    for (int col = 0; col <= pisos && !error; col++) {
-        if (col < exist)
-            query.prepare(updateStm);
-        else
-            query.prepare(insertStm);
-        query.bindValue(0,cuenta);
-        for (int row = 0; row < tratamientoTable->rowCount(); row++) {
-             if (row == 3 || row == 5)
-                 query.bindValue(row+1,tratamientoTable->item(row,col)->checkState() == Qt::Checked);
-             else
-                 query.bindValue(row+1,tratamientoTable->item(row,col)->text());
+    if (save) {
+        QModelIndex indext,indexm;
+        int offset = 1;
+        int pisos = tratPisoEdit->text().toInt();
+        for (int col = 0; col < tratamientoTable->columnCount() && col <= pisos; col++) {
+            for (int row = 0; row < tratamientoTable->rowCount(); row++) {
+                indext = tratamientoTable->model()->index(row,col);
+                indexm = model->index(mapper->currentIndex(), row+offset);
+                if (row == 3 || row == 5)
+                    model->setData(indexm,tratamientoTable->item(row,col)->checkState() == Qt::Checked);
+                else
+                    model->setData(indexm, tratamientoTable->model()->data(indext,Qt::DisplayRole));
+            }
+            offset += 6;
         }
-        query.bindValue(7,cuenta*10+col);
-        query.exec();
-        if (query.lastError().isValid())
-            error = true;
-    }
-
-    if (!error) {
-        QSqlDatabase::database().commit();
-        QMessageBox::information(this,"Datos guardados","Datos guardados con éxito");
-    }
-    else {
-        QMessageBox::warning(this,"Error al guardar", query.lastError().text());
-        QSqlDatabase::database().rollback();
+        this->submit();
     }
 }

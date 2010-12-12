@@ -1,9 +1,8 @@
 #include "edificacionform.h"
 #include "util/combodelegate.h"
 #include <QDataWidgetMapper>
-#include <QMessageBox>
-#include <QSqlQuery>
-#include <QSqlError>
+#include <QSqlTableModel>
+#include <QModelIndex>
 
 EdificacionForm::EdificacionForm(const int &cuenta, QWidget *parent) :
     QGroupBox(parent){
@@ -34,8 +33,42 @@ EdificacionForm::EdificacionForm(const int &cuenta, QWidget *parent) :
     for (int col = 0; col < edifUsoSueloTable->columnCount(); col++)
         edifUsoSueloTable->setColumnWidth(col,25);
     modificarEdificacion("0");
-    setUsoSuelo();
-    this->setAttribute(Qt::WA_DeleteOnClose);
+    setTabla(edifUsoSueloTable);
+}
+
+void EdificacionForm::setTabla(QTableWidget *tabla) {
+    int offset = 5;
+    if (!isNew) {
+        QModelIndex index;
+        for (int col = 0; col < tabla->columnCount(); col++) {
+            index = model->index(mapper->currentIndex(), col+offset);
+            int coded_val = model->data(index).toInt();
+            int row = tabla->rowCount() - 1;
+            while (coded_val > 1) {
+                if (coded_val % 2 == 1)
+                    tabla->item(row,col)->setCheckState(Qt::Checked);
+                coded_val /= 2;
+                row -= 1;
+            }
+            if (coded_val == 1)
+                tabla->item(row, col)->setCheckState(Qt::Checked);
+        }
+        modificarEdificacion(edifPisosEdit->text());
+    }
+}
+
+void EdificacionForm::setCoded(QTableWidget *tabla) {
+    int pisos = edifPisosEdit->text().toInt();
+    for (int col = 0; col < tabla->columnCount(); col++) {
+        int curInd = col;
+        coded_values[curInd] = 0;
+        int ini = 512;
+        for (int row = 0; row < tabla->rowCount() && col <= pisos; row++) {
+            if (tabla->item(row,col)->checkState() == Qt::Checked)
+                coded_values[curInd] += ini;
+            ini /= 2;
+        }
+    }
 }
 
 void EdificacionForm::modificarEdificacion(QString textChanged) {
@@ -60,73 +93,11 @@ QTableWidgetItem *EdificacionForm::createTableItem() {
 }
 
 void EdificacionForm::guardar() {
-    if (this->submit()) {
-        QSqlQuery query;
-        QSqlDatabase::database().transaction();
-        int cuenta = cuentaEdit->text().toInt();
-        int pisos = edifPisosEdit->text().toInt();
-        bool error = false;
-        if (pisos < 4) {
-            query.prepare("DELETE FROM uso_suelo WHERE cuenta_id = ? AND piso > ?");
-            query.addBindValue(cuenta);
-            query.addBindValue(cuenta*10+pisos);
-            query.exec();
-            if (query.lastError().isValid())
-                error = true;
-        }
-
-        //query.prepare("INSERT INTO uso_suelo VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-        QString updateStm = QString("UPDATE uso_suelo SET %1 WHERE piso = ?").arg(
-        "cuenta_id = ?,adm_oficina = ?,comercio_gm = ?,comercio_pm = ?,despensa = ?,bar_cafe = ?,hotel = ?,sanidad = ?,recreo = ?,religioso = ?,otros = ?"
-        );
-        QString insertStm = QString("INSERT INTO uso_suelo (%1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)").arg(
-        "cuenta_id,adm_oficina,comercio_gm,comercio_pm,despensa,bar_cafe,hotel,sanidad,recreo,religioso,otros,piso"
-        );
-        if (pisos >= edifUsoSueloTable->columnCount())
-            pisos = edifUsoSueloTable->columnCount() - 1;
-
-        for (int col = 0; col <= pisos && !error ; col++) {
-            if (col < exist)
-                query.prepare(updateStm);
-            else
-                query.prepare(insertStm);
-            query.bindValue(0,cuenta);
-            for (int row = 0; row < edifUsoSueloTable->rowCount(); row++)
-                query.bindValue(row+1,edifUsoSueloTable->item(row,col)->checkState() == Qt::Checked);
-            query.bindValue(11,cuenta*10 + col);
-            query.exec();
-            if (query.lastError().isValid())
-                error = true;
-        }
-        if (!error) {
-            QSqlDatabase::database().commit();
-            isNew = false;
-            setUsoSuelo();
-        }
-        else {
-            QMessageBox::warning(this,"Error al guardar", query.lastError().text());
-            QSqlDatabase::database().rollback();
-        }
+    setCoded(edifUsoSueloTable);
+    QModelIndex index;
+    for (int i = 0; i < 5; i++) {
+        index = model->index(mapper->currentIndex(), i+5);
+        model->setData(index,coded_values[i]);
     }
-}
-
-void EdificacionForm::setUsoSuelo() {
-    if (!isNew) {
-        modificarEdificacion(edifPisosEdit->text());
-        QSqlQuery query;
-        query.prepare("SELECT * FROM uso_suelo WHERE cuenta_id = ? ORDER BY piso");
-        query.bindValue(0, cuentaEdit->text().toInt());
-        query.exec();
-        int col = 0;
-        while (query.next()) {
-            for (int row = 0; row < edifUsoSueloTable->rowCount(); row++) {
-                    if (query.value(row+2).toBool())
-                        edifUsoSueloTable->item(row,col)->setCheckState(Qt::Checked);
-            }
-            col++;
-        }
-        exist = col;
-    }
-    else
-        exist = 0;
+    this->submit();
 }

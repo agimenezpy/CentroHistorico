@@ -60,16 +60,10 @@
        <property name="text">
         <string>Cuenta Corriente:</string>
        </property>
-       <property name="buddy">
-        <cstring>cuentaCorrienteEdit</cstring>
-       </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="cuentaCorrienteEdit">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -79,7 +73,7 @@
        <property name="minimumSize">
         <size>
          <width>100</width>
-         <height>0</height>
+         <height>25</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -91,14 +85,8 @@
        <property name="inputMask">
         <string>00-0000-00;_</string>
        </property>
-       <property name="text">
-        <string>--</string>
-       </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -161,10 +149,10 @@
         </size>
        </property>
        <property name="inputMask">
-        <string notr="true">00-0000;_</string>
+        <string notr="true"/>
        </property>
        <property name="text">
-        <string notr="true">-</string>
+        <string notr="true"/>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -653,12 +641,18 @@
      </item>
      <item>
       <widget class="QPushButton" name="agregarEncButton">
+       <property name="toolTip">
+        <string notr="true">Agregar Encuestador</string>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset resource="centrohistorico.qrc">
          <normaloff>:/icons/encuestadores.png</normaloff>:/icons/encuestadores.png</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -682,8 +676,8 @@
        </property>
        <property name="font">
         <font>
-         <weight>50</weight>
-         <bold>false</bold>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -707,6 +701,16 @@
          <width>100</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>1990</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
        </property>
        <property name="displayFormat">
         <string>dd/MM/yyyy</string>
@@ -988,22 +992,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>cuentaCorrienteEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>GeneralForm</receiver>
-   <slot>onCuentaCorrienteTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>201</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>266</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>agregarEncButton</sender>
    <signal>clicked()</signal>
    <receiver>GeneralForm</receiver>
@@ -1015,6 +1003,22 @@
     </hint>
     <hint type="destinationlabel">
      <x>266</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cuentaCorrienteEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>GeneralForm</receiver>
+   <slot>onCuentaCorrienteTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
      <y>299</y>
     </hint>
    </hints>

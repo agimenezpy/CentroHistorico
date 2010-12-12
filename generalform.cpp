@@ -66,8 +66,14 @@ GeneralForm::GeneralForm(QWidget *parent, QSqlTableModel *pModel, QModelIndex *p
     QRegExpValidator *rx = new QRegExpValidator(rxTmp, this);
     numeroEdifEdit->setValidator(rx);
 
+    rxTmp.setPattern("\\d{1,2}-\\d{1,4}");
+    rx = new QRegExpValidator(rxTmp, this);
+    numeroEdit->setValidator(rx);
+
     connect(model, SIGNAL(beforeInsert(QSqlRecord&)),
             this, SLOT(beforeInsertGeneral(QSqlRecord&)));
+
+
 }
 
 void GeneralForm::onBarrioTextChanged(QString barrio) {
@@ -182,7 +188,7 @@ bool GeneralForm::validar() {
     if (s.length() == 0 || intVal->validate(s, pos) == QValidator::Invalid) {
         QMessageBox::information(this,
                                  "Al completar Barrio",
-                                 "<b>Barrio</b> debe ser un número.");
+                                 "Debe elegir el <b>Barrio</b>.");
         barrioEdit->setFocus();
         return false;
     }
@@ -190,7 +196,7 @@ bool GeneralForm::validar() {
     if (s.length() == 0 || intVal->validate(s, pos) == QValidator::Invalid) {
         QMessageBox::information(this,
                                  "Al completar Encuestador",
-                                 "<b>Encuestador</b> debe ser un número.");
+                                 "Debe elegir el <b>Encuestador</b>.");
         encEdit->setFocus();
         return false;
     }
@@ -206,7 +212,7 @@ bool GeneralForm::validar() {
 }
 
 void GeneralForm::guardar() {
-    if (validar() && !isNew) {
+    if (validar()) {
         mapper->submit();
         model->submitAll();
         if (model->lastError().isValid()) {

@@ -1,6 +1,7 @@
 #include "encuestadorpickform.h"
 #include <QMessageBox>
 #include <QSqlRelationalTableModel>
+#include <QSqlTableModel>
 #include <QSqlRelation>
 #include <QSqlRelationalDelegate>
 #include <QDataWidgetMapper>
@@ -16,16 +17,21 @@ EncuestadorPickForm::EncuestadorPickForm(QWidget *parent) :
     model->setTable("encuestador");
     model->setRelation(1, QSqlRelation("titulo_encuestador","id","descripcion"));
     model->select();
+
+    QSqlTableModel *relModel = model->relationModel(1);
+    tituloCmb->setModel(relModel);
+    tituloCmb->setModelColumn(relModel->fieldIndex("descripcion"));
+
     mapper->setModel(model);
     mapper->setItemDelegate(new QSqlRelationalDelegate(this));
     mapper->addMapping(tituloCmb, 1);
     mapper->addMapping(nombreEdit, 2);
     mapper->addMapping(apellidoEdit, 3);
-    mapper->submit();
 
     int row = model->rowCount();
     model->insertRow(row);
     mapper->setCurrentIndex(row);
+    tituloCmb->setCurrentIndex(0);
 }
 
 void EncuestadorPickForm::submit() {

@@ -2,9 +2,12 @@
 #define FACHADAFORM_H
 
 #include "ui_fachadaform.h"
+#include "modelhelper.hpp"
+#include <QStringList>
+
 class QTableWidgetItem;
 
-class FachadaForm : public QGroupBox, private Ui::FachadaForm {
+class FachadaForm : public QGroupBox, public ModelHelper, private Ui::FachadaForm {
     Q_OBJECT
 public:
     FachadaForm(const int &cuenta, QWidget *parent = 0);
@@ -12,9 +15,13 @@ public:
 
 private:
     void setFachada();
-    QTableWidgetItem *createTableItem();
+    QTableWidgetItem *createTableItem(bool check);
+    void inicializarTabla(QTableWidget *tabla);
+    void setTabla(QTableWidget *tabla);
+    void setCoded(QTableWidget *tabla);
+    int coded_values[5];
     bool save;
-    int exist;
+    QStringList otros;
 };
 
 #endif // FACHADAFORM_H

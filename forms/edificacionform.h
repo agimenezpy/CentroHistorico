@@ -14,9 +14,10 @@ protected slots:
     void modificarEdificacion(QString textChanged);
 
 private:
+    void setTabla(QTableWidget *tabla);
+    void setCoded(QTableWidget *tabla);
     QTableWidgetItem *createTableItem();
-    void setUsoSuelo();
-    int exist;
+    int coded_values[5];
 };
 
 #endif // EDIFICACIONFORM_H

@@ -49,22 +49,12 @@ CREATE TABLE "edificacion" (
     "superficie" decimal NOT NULL,
     "superficie_total" decimal NOT NULL,
     "pisos" smallint NOT NULL,
-    "edificacion" varchar(1)
-)
-;
-CREATE TABLE "uso_suelo" (
-    "piso" integer NOT NULL PRIMARY KEY,
-    "cuenta_id" integer NOT NULL REFERENCES "general" ("cuenta"),
-    "adm_oficina" bool NOT NULL,
-    "comercio_gm" bool NOT NULL,
-    "comercio_pm" bool NOT NULL,
-    "despensa" bool NOT NULL,
-    "bar_cafe" bool NOT NULL,
-    "hotel" bool NOT NULL,
-    "sanidad" bool NOT NULL,
-    "recreo" bool NOT NULL,
-    "religioso" bool NOT NULL,
-    "otros" bool NOT NULL
+    "edificacion" varchar(1),
+    "piso_ss" smallint NOT NULL,
+    "piso_1" smallint NOT NULL,
+    "piso_2" smallint NOT NULL,
+    "piso_3" smallint NOT NULL,
+    "piso_M" smallint NOT NULL
 )
 ;
 CREATE TABLE "patio" (
@@ -89,13 +79,22 @@ CREATE TABLE "acceso" (
 )
 ;
 CREATE TABLE "entorno" (
-    "id" integer NOT NULL PRIMARY KEY,
-    "cuenta_id" integer NOT NULL REFERENCES "general" ("cuenta"),
-    "categoria" varchar(2) NOT NULL,
-    "material" text,
-    "estado" varchar(1),
-    "incidencia" varchar(1),
-    UNIQUE ("cuenta_id", "categoria")
+    "cuenta_id" integer NOT NULL PRIMARY KEY REFERENCES "general" ("cuenta"),
+    "vereda_material" text,
+    "vereda_estado" varchar(1),
+    "vereda_incidencia" varchar(1),
+    "calzada_material" text,
+    "calzada_estado" varchar(1),
+    "calzada_incidencia" varchar(1),
+    "vegetacion_material" text,
+    "vegetacion_estado" varchar(1),
+    "vegetacion_incidencia" varchar(1),
+    "mobiliario_material" text,
+    "mobiliario_estado" varchar(1),
+    "mobiliario_incidencia" varchar(1),
+    "otros_material" text,
+    "otros_estado" varchar(1),
+    "otros_incidencia" varchar(1)
 )
 ;
 CREATE TABLE "servicio" (
@@ -188,30 +187,51 @@ CREATE TABLE "patologia" (
 )
 ;
 CREATE TABLE "tratamiento_general" (
-    "piso" integer NOT NULL PRIMARY KEY,
-    "cuenta_id" integer NOT NULL REFERENCES "general" ("cuenta"),
-    "materiales" varchar(50),
-    "textura" varchar(50),
-    "color" varchar(50),
-    "alteraciones" bool NOT NULL,
-    "letreros" varchar(50),
-    "otros" bool NOT NULL
+    "cuenta_id" integer NOT NULL PRIMARY KEY REFERENCES "general" ("cuenta"),
+    "pss_materiales" varchar(50),
+    "pss_textura" varchar(50),
+    "pss_color" varchar(50),
+    "pss_alteraciones" bool,
+    "pss_letreros" varchar(50),
+    "pss_otros" bool,
+    "p1_materiales" varchar(50),
+    "p1_textura" varchar(50),
+    "p1_color" varchar(50),
+    "p1_alteraciones" bool,
+    "p1_letreros" varchar(50),
+    "p1_otros" bool,
+    "p2_materiales" varchar(50),
+    "p2_textura" varchar(50),
+    "p2_color" varchar(50),
+    "p2_alteraciones" bool,
+    "p2_letreros" varchar(50),
+    "p2_otros" bool,
+    "p3_materiales" varchar(50),
+    "p3_textura" varchar(50),
+    "p3_color" varchar(50),
+    "p3_alteraciones" bool,
+    "p3_letreros" varchar(50),
+    "p3_otros" bool,
+    "pM_materiales" varchar(50),
+    "pM_textura" varchar(50),
+    "pM_color" varchar(50),
+    "pM_alteraciones" bool,
+    "pM_letreros" varchar(50),
+    "pM_otros" bool
 )
 ;
 CREATE TABLE "fachada" (
-    "piso" integer NOT NULL PRIMARY KEY,
-    "cuenta_id" integer NOT NULL REFERENCES "general" ("cuenta"),
-    "zocalo" bool NOT NULL,
-    "columna_pilar" bool NOT NULL,
-    "molduras" bool NOT NULL,
-    "portada" bool NOT NULL,
-    "galeria" bool NOT NULL,
-    "arcos" bool NOT NULL,
-    "adintelado" bool NOT NULL,
-    "decorado" bool NOT NULL,
-    "balcon_voladizo" bool NOT NULL,
-    "balcon_recto" bool NOT NULL,
-    "otros" varchar(50) NOT NULL
+    "cuenta_id" integer NOT NULL PRIMARY KEY REFERENCES "general" ("cuenta"),
+    "piso_ss" smallint NOT NULL,
+    "piso_1" smallint NOT NULL,
+    "piso_2" smallint NOT NULL,
+    "piso_3" smallint NOT NULL,
+    "piso_M" smallint NOT NULL,
+    "pss_otros" varchar(50) NULL,
+    "p1_otros" varchar(50) NULL,
+    "p2_otros" varchar(50) NULL,
+    "p3_otros" varchar(50) NULL,
+    "pM_otros" varchar(50) NULL
 )
 ;
 CREATE TABLE "remates" (
@@ -271,7 +291,6 @@ CREATE TABLE "imagen" (
 CREATE INDEX "encuestador_titulo_id" ON "encuestador" ("titulo_id");
 CREATE INDEX "general_barrio_id" ON "general" ("barrio_id");
 CREATE INDEX "general_encuestador_id" ON "general" ("encuestador_id");
-CREATE INDEX "uso_suelo_cuenta_id" ON "uso_suelo" ("cuenta_id");
 CREATE INDEX "entorno_cuenta_id" ON "entorno" ("cuenta_id");
 CREATE INDEX "tratamiento_general_cuenta_id" ON "tratamiento_general" ("cuenta_id");
 CREATE INDEX "fachada_cuenta_id" ON "fachada" ("cuenta_id");

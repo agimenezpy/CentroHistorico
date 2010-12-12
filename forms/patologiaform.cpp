@@ -19,9 +19,12 @@ PatologiaForm::PatologiaForm(const int &cuenta, QWidget *parent) :
 }
 
 void PatologiaForm::inicializarTabla(QTableWidget *tabla, const int &offset) {
-    for (int row = 0; row < tabla->rowCount(); row++)
-        for (int col = 0; col < tabla->columnCount(); col++)
-            tabla->setItem(row,col,createTableItem());
+    for (int row = 0; row < tabla->rowCount(); row++) {
+        for (int col = 0; col < tabla->columnCount()-1; col++)
+            tabla->setItem(row,col,createTableItem(true));
+        tabla->setItem(row,tabla->columnCount()-1,createTableItem(false));
+    }
+    tabla->setColumnWidth(tabla->columnCount()-1, 100);
     setTabla(tabla,offset);
 }
 
@@ -31,7 +34,7 @@ void PatologiaForm::setTabla(QTableWidget *tabla, const int &offset) {
         for (int row = 0; row < tabla->rowCount(); row++) {
             index = model->index(mapper->currentIndex(), row+offset);
             int coded_val = model->data(index).toInt();
-            int col = tabla->columnCount() - 1;
+            int col = tabla->columnCount() - 2;
             while (coded_val > 1) {
                 if (coded_val % 2 == 1)
                     tabla->item(row,col)->setCheckState(Qt::Checked);
@@ -40,6 +43,8 @@ void PatologiaForm::setTabla(QTableWidget *tabla, const int &offset) {
             }
             if (coded_val == 1)
                 tabla->item(row, col)->setCheckState(Qt::Checked);
+            index = model->index(mapper->currentIndex(), row+offset+29);
+            tabla->item(row,tabla->columnCount() - 1)->setText(model->data(index).toString());
         }
     }
 }
@@ -48,20 +53,23 @@ void PatologiaForm::setCoded(QTableWidget *tabla, const int &offset) {
     for (int row = 0; row < tabla->rowCount(); row++) {
         int curInd = row+offset;
         coded_values[curInd] = 0;
-        int ini = 1024;
-        for (int col = 0; col < tabla->columnCount(); col++) {
+        int ini = 512;
+        for (int col = 0; col < tabla->columnCount()-1; col++) {
             if (tabla->item(row,col)->checkState() == Qt::Checked)
                 coded_values[curInd] += ini;
             ini /= 2;
         }
+        otros.append(tabla->item(row,tabla->columnCount() - 1)->text());
     }
 }
 
-QTableWidgetItem *PatologiaForm::createTableItem() {
+QTableWidgetItem *PatologiaForm::createTableItem(bool check) {
     QTableWidgetItem* item = new QTableWidgetItem;
-    item->setFlags(Qt::NoItemFlags);
-    item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
-    item->setCheckState(Qt::Unchecked);
+    if (check) {
+        item->setFlags(Qt::NoItemFlags);
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
+        item->setCheckState(Qt::Unchecked);
+    }
     return item;
 }
 
@@ -76,6 +84,11 @@ void PatologiaForm::guardar() {
     for (int i = 0; i < 29; i++) {
         index = model->index(mapper->currentIndex(), i+1);
         model->setData(index,coded_values[i]);
+        index = model->index(mapper->currentIndex(), i+30);
+        QString dato = otros.at(i);
+        if (dato != "") {
+            model->setData(index,dato);
+        }
     }
     this->submit();
 }

@@ -13,14 +13,14 @@ Listado::Listado(QWidget *parent) :
     model = new QSqlTableModel(this);
     model->setTable("general");
     model->select();
-    model->setHeaderData(1, Qt::Horizontal, "Número");
-    model->setHeaderData(0, Qt::Horizontal, "Cuenta Corriente");
-    model->setHeaderData(7, Qt::Horizontal, "Denominación");
-    model->setHeaderData(2, Qt::Horizontal, "Dirección");
+    model->setHeaderData(2, Qt::Horizontal, "Número");
+    model->setHeaderData(1, Qt::Horizontal, "Cuenta Corriente");
+    model->setHeaderData(8, Qt::Horizontal, "Denominación");
+    model->setHeaderData(3, Qt::Horizontal, "Dirección");
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tableView->setModel(model);
-    for (int i = 0; i < 14; i++) {
-        if (i > 2 && i != 7)
+    for (int i = 0; i < 15; i++) {
+        if ((i > 3 && i != 8) || i == 0)
             tableView->setColumnHidden(i, true);
     }
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -49,7 +49,7 @@ QSqlTableModel *Listado::getModel() {
 
 void Listado::filtrar() {
     if (buscarEdit->text().size() > 0) {
-        model->setFilter(QString("cuenta = %1").arg(buscarEdit->text()));
+        model->setFilter(QString("cuenta_corriente = %1").arg(buscarEdit->text()));
         model->select();
     }
     else if (model->filter().size() > 0) {
